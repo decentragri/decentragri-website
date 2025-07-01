@@ -1,0 +1,94 @@
+/* Banner styles for both light and dark modes */
+
+.banner-bg {
+  background-image: url(/assets/img/banner/dashboard_banner.jpg) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  min-height: 500px;
+}
+
+.banner-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Lighter overlay for light mode */
+  z-index: 1;
+}
+
+.banner-area {
+  padding: 250px 0 145px;
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content .title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-content .title span {
+  color: var(--accent-color, #6DBE45);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+}
+
+/* Dark mode specific styles */
+.dark-mode .banner-bg::before {
+  background: rgba(0, 0, 0, 0.5); /* Slightly darker overlay for dark mode */
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .banner-content .title {
+    font-size: 42px;
+  }
+  
+  .banner-content p {
+    font-size: 16px;
+  }
+  
+  .banner-area {
+    padding: 200px 0 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner-area {
+    padding: 180px 0 100px;
+  }
+  
+  .banner-content .title {
+    font-size: 36px;
+  }
+  
+  .banner-content p {
+    font-size: 15px;
+  }
+  
+  .banner-bg {
+    min-height: 450px;
+  }
+}

@@ -1,0 +1,94 @@
+.farm-page-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.dashboard-card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--card-box-shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--primary-text-color);
+  font-weight: 600;
+}
+
+.farm-details {
+  margin-bottom: 15px;
+  color: var(--secondary-text-color);
+}
+
+.farm-details p {
+  margin: 10px 0;
+  color: var(--secondary-text-color);
+}
+
+.farm-details strong {
+  color: var(--primary-text-color);
+}
+
+.farm-description {
+  color: var(--secondary-text-color);
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.farm-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  font-size: 13px;
+  color: var(--secondary-text-color);
+}
+
+.farm-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  text-align: center;
+}
+
+.add-farm-btn {
+  margin-top: 15px;
+  padding: 8px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-farm-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+}

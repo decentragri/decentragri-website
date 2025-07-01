@@ -1,0 +1,380 @@
+/* Token Transfer Modal */
+.token-transfer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.2s ease-out;
+  padding: 1.5rem;
+}
+
+.token-transfer-modal {
+  background: var(--card-background);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  font-size: 1.15rem;
+}
+
+.token-transfer-tabs {
+  display: flex;
+  margin: 0 -3rem 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 3rem;
+  position: relative;
+}
+
+.token-transfer-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+
+.token-transfer-header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.token-transfer-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  margin: 1rem 0 0.75rem;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+
+.token-transfer-subtitle {
+  font-size: 1.3rem;
+  color: var(--secondary-text-color);
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.token-transfer-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: var(--primary-text-color);
+}
+
+.token-transfer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.input-group input {
+  padding-right: 100px;
+  flex: 1;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.token-transfer-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.token-transfer-tab {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  color: var(--secondary-text-color) !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1.2rem !important;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none !important;
+}
+
+/* Base tab styles */
+.token-transfer-tab {
+  color: var(--secondary-text-color) !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1.2rem !important;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none !important;
+}
+
+/* Active tab styles */
+.token-transfer-tab.active {
+  color: #6DBE45 !important;
+  border-bottom-color: #6DBE45 !important;
+  font-weight: 700 !important;
+  transform: translateY(-1px);
+  opacity: 1 !important;
+}
+
+/* Transaction History Styles */
+.transaction-history {
+  padding: 0 0.5rem;
+}
+
+.transaction-item {
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 0.25rem 0;
+  transition: all 0.2s ease;
+}
+
+.transaction-item:hover {
+  background-color: var(--hover-background);
+}
+
+.transaction-amount.received {
+  color: #4CAF50 !important;
+}
+
+.transaction-amount.sent {
+  color: #F44336 !important;
+}
+
+.transaction-hash {
+  font-family: 'Roboto Mono', monospace;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+.transaction-date {
+  color: var(--secondary-text-color);
+  font-size: 0.85rem;
+}
+
+.transaction-status {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.status-completed {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.status-pending {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #FFC107;
+}
+
+.status-failed {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+}
+
+/* Scrollbar styling */
+.transaction-history::-webkit-scrollbar {
+  width: 6px;
+}
+
+.transaction-history::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.transaction-history::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 3px;
+}
+
+/* Hover state */
+.token-transfer-tab:hover {
+  color: #6DBE45 !important;
+  opacity: 0.9;
+}
+
+/* Dark mode overrides */
+.token-transfer-overlay.dark-mode .token-transfer-tab {
+  color: #e0e0e0 !important;
+}
+
+.token-transfer-overlay.dark-mode .token-transfer-tab.active {
+  color: #6DBE45 !important;
+  border-bottom-color: #6DBE45 !important;
+}
+
+.token-transfer-overlay.dark-mode .token-transfer-tab:hover {
+  color: #6DBE45 !important;
+}
+
+/* Ensure active tab is always visible in all themes */
+.token-transfer-tab.active,
+[data-theme='dark'] .token-transfer-tab.active,
+.token-transfer-overlay.dark-mode .token-transfer-tab.active {
+  color: #6DBE45 !important;
+  border-bottom-color: #6DBE45 !important;
+  opacity: 1 !important;
+}
+
+/* Hover states */
+.token-transfer-tab:hover,
+[data-theme='dark'] .token-transfer-tab:hover,
+.token-transfer-overlay.dark-mode .token-transfer-tab:hover {
+  color: #6DBE45 !important;
+  opacity: 0.9 !important;
+}
+
+.token-transfer-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.token-transfer-btn.primary {
+  background: linear-gradient(135deg, #6DBE45 0%, #4ade80 100%) !important;
+  color: white !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Ensure background is always visible in dark mode */
+[data-theme='dark'] .token-transfer-btn.primary {
+  background: linear-gradient(135deg, #6DBE45 0%, #4ade80 100%) !important;
+  color: white !important;
+}
+
+.token-transfer-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
+}
+
+.token-transfer-btn.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #5aad37 0%, #3bba69 100%);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.token-transfer-btn.primary:hover::before {
+  width: 100%;
+}
+
+.token-transfer-btn.secondary {
+  background: var(--card-background);
+  color: var(--primary-text-color);
+  border: 1px solid var(--border-color);
+}
+
+.token-transfer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.token-transfer.max-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.token-transfer-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--secondary-text-color);
+  transition: all 0.2s;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.token-transfer-close:hover {
+  color: var(--primary-text-color);
+  background-color: var(--hover-background);
+  transform: scale(1.1);
+}
+
+/* Dark mode styles */
+[data-theme='dark'] .token-transfer-modal {
+  background: var(--card-bg-dark, #2d3748);
+  border-color: var(--border-color-dark, #4a5568);
+}
+
+[data-theme='dark'] .token-transfer-btn.secondary {
+  background: var(--card-bg-dark, #2d3748);
+  border-color: var(--border-color-dark, #4a5568);
+}
+
+/* Animation */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.token-transfer-modal {
+  animation: modalFadeIn 0.3s ease-out forwards;
+}
