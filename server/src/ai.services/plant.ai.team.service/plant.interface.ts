@@ -20,6 +20,6 @@ export interface PlantImageScanParams {
 		lng: number;
 	};
 	note?: string;
-	interpretation: string; // Optional interpretation of the scan
+	interpretation: string;
     
 }

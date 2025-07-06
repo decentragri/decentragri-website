@@ -1,178 +1,248 @@
 import { useState, useEffect } from 'preact/hooks';
-import { useAuthStore } from '../../context/AuthContext';
-import { useThemeStore } from '../../context/ThemeContext';
-import { getFarmList } from '../../client/farmer/clientFarmer';
-import '../../Components/Dashboard/UserDashboard.css';
+import { useLocation } from 'preact-iso';
+import { useThemeStore } from '@context/ThemeContext';
+import { getFarmList, createFarm } from '@client/farmer/clientFarmer';
+import { AddFarmModal } from './AddFarmModal';
+import { FarmData } from '../../../server/src/farmer.services/farmer.interface';
 import './Farm.css';
 
-// Interface for the farm data from the API
 interface FarmList {
-  id: string;
   farmName: string;
+  id: string;
   cropType: string;
-}
-
-// Extended interface with additional fields for our UI
-interface Farm extends FarmList {
-  // Optional fields for UI
-  description?: string;
-  createdAt?: string | Date;
-  image?: string;
   location?: {
-    lat: number;
-    lng: number;
+    displayName?: string;
+    lat?: number;
+    lng?: number;
   };
+  status?: string;
 }
 
-// Simple loading component
-function LoadingSpinner() {
-  return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <div style={{
-        border: '4px solid rgba(0, 0, 0, 0.1)',
-        width: '36px',
-        height: '36px',
-        borderRadius: '50%',
-        borderLeftColor: '#09f',
-        animation: 'spin 1s linear infinite',
-        margin: '0 auto 1rem'
-      }}></div>
-      <p>Loading your farms...</p>
-      <style>{`
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `}</style>
-    </div>
-  );
-}
+const Farm = () => {
+  // Sample data for demonstration
+  const sampleFarms: FarmList[] = [
+    {
+      id: 'farm-123',
+      farmName: 'Sunny Valley Farm',
+      cropType: 'Corn',
+      location: {
+        displayName: 'Central Valley, CA',
+        lat: 36.7378,
+        lng: -119.7871
+      },
+      status: 'Active'
+    },
+    {
+      id: 'farm-124',
+      farmName: 'Green Pastures',
+      cropType: 'Wheat',
+      location: {
+        displayName: 'Kansas Plains, KS',
+        lat: 38.4937,
+        lng: -98.3804
+      },
+      status: 'Active'
+    },
+    {
+      id: 'farm-125',
+      farmName: 'Mountain View Orchard',
+      cropType: 'Apples',
+      location: {
+        displayName: 'Wenatchee, WA',
+        lat: 47.4235,
+        lng: -120.3103
+      },
+      status: 'Active'
+    }
+  ];
 
-// Main Farm component
-export default function Farm() {
-  console.log('[Farm] Component rendering');
+  const [farms, setFarms] = useState<FarmList[]>(sampleFarms);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
-  const [farms, setFarms] = useState<Farm[]>([]);
-  
-  const { isLoggedIn, userInfo } = useAuthStore();
-  const { isDarkMode } = useThemeStore();
-  const accessToken = userInfo?.accessToken;
-  
-  // Fetch farm data
-  useEffect(() => {
-    console.log('[Farm] useEffect running, isLoggedIn:', isLoggedIn);
-    
-    if (!isLoggedIn) {
-      console.log('[Farm] User not logged in or missing token');
-      setError('Please log in to view your farms');
-      setLoading(false);
-      return;
-    }
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const { isDarkMode } = useThemeStore();
+  const location = useLocation();
+
+  useEffect(() => {
     const fetchFarms = async () => {
       try {
-
-
-        console.log('[Farm] Fetching farm data...');
         const result = await getFarmList();
         
+        // Check if result is an Error instance
         if (result instanceof Error) {
-          console.error('[Farm] Error fetching farms:', result);
-          setError('Failed to load farms. Please try again later.');
-          setLoading(false);
-          return;
+          throw result;
         }
         
-        console.log('[Farm] Farm data received:', result);
-        
-        // Ensure we have a valid array of farms
-        if (!Array.isArray(result)) {
-          console.error('[Farm] Invalid farm data format:', result);
-          setError('Invalid farm data received from server');
-          setLoading(false);
-          return;
+        // Check if we have valid farm data
+        if (Array.isArray(result) && result.length > 0) {
+          setFarms(result);
+          setError(null);
+        } else {
+          // Fall back to sample data if API returns empty or invalid data
+          setFarms(sampleFarms);
+          setError('No farms found. Showing sample data.');
         }
-        
-        // Map the API response to our extended Farm type
-        const farmsData: Farm[] = result.map(farm => ({
-          // Required fields from FarmList
-          id: farm.id,
-          farmName: farm.farmName,
-          cropType: farm.cropType,
-          // Initialize optional fields with default values
-          description: 'No description available',
-          // Use current date for creation
-          createdAt: new Date().toISOString()
-        }));
-        
-        setFarms(farmsData);
-        setError(null);
-      } catch (error) {
-        console.error('[Farm] Unexpected error:', error);
-        setError('An unexpected error occurred. Please try again.');
+      } catch (err) {
+        console.error('Error fetching farms:', err);
+        // Use sample data if API fails
+        setFarms(sampleFarms);
+        setError('Using sample data. Could not connect to the server.');
       } finally {
         setLoading(false);
       }
     };
 
     fetchFarms();
-    
-    return () => {
-      console.log('[Farm] Cleaning up');
-    };
-  }, [isLoggedIn, accessToken]);
+  }, [sampleFarms]); // Add sampleFarms to dependency array
 
   if (loading) {
-    return <div className="loading-text">Loading your farms...</div>;
+    return (
+      <div className={`farm-container ${isDarkMode ? 'dark' : ''}`}>
+        <div className="farm-loading">
+          <div className="farm-spinner"></div>
+          <p>Loading farms...</p>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="error-text">{error}</div>;
+    return (
+      <div className={`farm-error ${isDarkMode ? 'dark' : ''}`}>
+        <i className="fas fa-exclamation-circle"></i>
+        <p>{error}</p>
+      </div>
+    );
   }
 
+  const handleAddFarm = async (farmData: FarmData) => {
+    setIsSubmitting(true);
+    try {
+      const result = await createFarm(farmData);
+      if (result instanceof Error) {
+        throw result;
+      }
+      // Refresh the farm list
+      const updatedFarms = await getFarmList();
+      if (!(updatedFarms instanceof Error)) {
+        setFarms(updatedFarms);
+      }
+      setIsModalOpen(false);
+    } catch (err) {
+      console.error('Error creating farm:', err);
+      setError('Failed to create farm. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
+  const fetchFarmsList = async () => {
+    try {
+      const result = await getFarmList();
+      if (result instanceof Error) {
+        throw result;
+      }
+      setFarms(result);
+    } catch (err) {
+      console.error('Error fetching farms:', err);
+      setError('Failed to load farms. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchFarmsList();
+  }, []);
 
   return (
-    <div className="farm-page-container">
-      <div className="dashboard-header">
-        <h2 className="dashboard-greeting">My Farms</h2>
-        <p className="dashboard-date">
-          Manage your farms and monitor their status
-        </p>
+    <div className={`farm-container ${isDarkMode ? 'dark' : ''}`}>
+      <div className="farm-header">
+        <h1>My Farms</h1>
+        <button 
+          className="add-farm-btn"
+          onClick={() => setIsModalOpen(true)}
+        >
+          <i className="fas fa-plus"></i> Add Farm
+        </button>
       </div>
+      
+      <AddFarmModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleAddFarm}
+        loading={isSubmitting}
+      />
 
-      <div className="dashboard-cards">
-        {farms.length === 0 ? (
-          <div className="dashboard-card farm-status">
-            <p>No farms found. Create your first farm to get started!</p>
-            <button className="add-farm-btn">+ Add Farm</button>
-          </div>
-        ) : (
-          farms.map((farm) => (
-            <div key={farm.id} className="dashboard-card">
-              <h3>{farm.farmName}</h3>
-              <div className="farm-details">
-                <p><strong>Crop Type:</strong> {farm.cropType || 'Not specified'}</p>
-                {farm.description && (
-                  <p className="farm-description">
-                    {farm.description.length > 120 
-                      ? `${farm.description.substring(0, 120)}...`
-                      : farm.description}
-                  </p>
+      {farms.length === 0 ? (
+        <div className="farm-empty-state">
+          <i className="fas fa-tractor"></i>
+          <h3>No Farms Yet</h3>
+          <p>You haven't added any farms yet. Get started by adding your first farm.</p>
+          <button className="primary-btn">
+            <i className="fas fa-plus"></i> Add Your First Farm
+          </button>
+        </div>
+      ) : (
+        <div className="farm-grid">
+          {farms.map((farm) => (
+            <div 
+              key={farm.id} 
+              className="farm-card"
+              onClick={() => location.route(`/dashboard/farm/${farm.id}`)}
+              style={{ cursor: 'pointer' }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && location.route(`/dashboard/farm/${farm.id}`)}
+              aria-label={`View details for ${farm.farmName}`}
+            >
+              <div className="farm-card-header">
+                <i className="fas fa-tractor"></i>
+                <h3>{farm.farmName}</h3>
+              </div>
+              <div className="farm-card-body">
+                <div className="farm-detail">
+                  <span className="detail-label">Crop Type</span>
+                  <span className="detail-value">
+                    {farm.cropType ? (
+                      <span className="crop-type-badge">{farm.cropType}</span>
+                    ) : (
+                      'Not specified'
+                    )}
+                  </span>
+                </div>
+                <div className="farm-detail">
+                  <span className="detail-label">Farm ID</span>
+                  <span className="detail-value" title={farm.id}>
+                    {farm.id.substring(0, 8)}...
+                  </span>
+                </div>
+                {farm.location?.displayName && (
+                  <div className="farm-detail">
+                    <span className="detail-label">Location</span>
+                    <span className="detail-value location">
+                      <i className="fas fa-map-marker-alt"></i>
+                      {farm.location.displayName}
+                    </span>
+                  </div>
                 )}
               </div>
-              <div className="farm-footer">
-                <span>ID: {farm.id.substring(0, 6)}...</span>
-                {farm.createdAt && (
-                  <span>Created: {new Date(farm.createdAt).toLocaleDateString()}</span>
-                )}
+              <div className="farm-card-footer">
+                <span className="view-details-link">
+                  View Details <i className="fas fa-arrow-right"></i>
+                </span>
+                <span className="status-badge">
+                  <i className="fas fa-circle"></i> Active
+                </span>
               </div>
             </div>
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Farm;

@@ -279,7 +279,8 @@ label {
     -moz-user-select: none;
     background: var(--nft-gradient-color);
     border: medium none;
-    border-radius: 25px;
+    border-radius: 50px;
+    
     color: #fff;
     cursor: pointer;
     display: inline-block;

@@ -7,6 +7,7 @@ import DecentragriLoader from '@components/IndexOne/DecentragriLoader';
 import Farm from '@components/Farm/Farm';
 
 
+
 const FarmPage = () => {
   const userInfo = useAuthStore((state) => state.userInfo);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
@@ -30,7 +31,7 @@ const FarmPage = () => {
       <div className={`dashboard-container ${isDarkMode ? 'dark-mode' : ''}`}>
         <DashboardHeader user={userInfo || undefined} />
         <div className="dashboard-content">
-          <Farm />
+          <Farm />  
         </div>
       </div>
     </div>

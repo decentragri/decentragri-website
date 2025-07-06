@@ -6,13 +6,15 @@ export const PORT: number = Number(process.env.PORT) || 8085;
 export const API_KEY: string | undefined = process.env.API_KEY;
 export const API_ID: string | undefined = process.env.API_ID;
 export const HOST: string = process.env.HOST || 'localhost';
-export const JWT_SECRET: string = process.env.JWT_SECRET || (() => {
+// Using JWT_SECRET_KEY from .env file
+export const JWT_SECRET: string = process.env.JWT_SECRET_KEY || (() => {
   if (process.env.NODE_ENV === 'production') {
-    throw new Error('JWT_SECRET must be set in production environment');
+    throw new Error('JWT_SECRET_KEY must be set in production environment');
   }
   console.warn('WARNING: Using default JWT secret. This is insecure and should only be used in development.');
   return 'dev_secret_' + Math.random().toString(36).substring(2);
 })();
+
 export const SALT_ROUNDS: number = Number(process.env.SALT_ROUNDS) || 10;
 
 // Neo4j Database Configuration

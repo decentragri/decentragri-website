@@ -39,7 +39,6 @@ const Farmer = (app: Elysia) =>
         }
         const jwtToken: string = authorizationHeader.substring(7);
 
-        console.log("JWT Token:", jwtToken);
         const driver = getDriver();
         const farmerService = new FarmerService(driver);
 

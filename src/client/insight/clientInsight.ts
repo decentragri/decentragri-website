@@ -13,6 +13,7 @@ export class InsightClient {
     if (!res.data) throw new Error("Failed to fetch ETH/SWETH price");
     return res.data;
   }
+  
 
   /**
    * Get wallet transactions (GET /insight/transactions/:walletAddress/:chain)

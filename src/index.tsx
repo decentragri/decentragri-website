@@ -31,6 +31,7 @@ import WalletPage from "./pages/WalletPage";
 import "./assets/css/privacy-policy.css";
 import "./assets/css/terms-of-service.css";
 import FarmPage from "./pages/Farm";
+import FarmProfile from "./Components/Farm/FarmProfile";
 
 
 export function App() {
@@ -71,6 +72,7 @@ export function App() {
 								<Route path="/dashboard" component={Dashboard} />
 								<Route path="/dashboard/weather-forecast" component={WeatherForecast} />
 								<Route path="/dashboard/farm" component={FarmPage} />
+								<Route path="/dashboard/farm/:id" component={FarmProfile} />
 								<Route path="/dashboard/staking" component={StakingPage} />
 								<Route path="/settings" component={SettingsPage} />
 								

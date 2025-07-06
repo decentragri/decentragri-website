@@ -11,8 +11,11 @@ export async function getCookie(name: string): Promise<string | undefined> {
     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     let value = match ? decodeURIComponent(match[2]) : undefined;
     
+
+    console.log("tae value", value)
     // If cookie is missing or empty, try to refresh the token
     if (!value) {
+        console.log("value is empty")   
         console.debug(`[getCookie] ${name} cookie not found or empty, attempting token refresh`);
         try {
             await refreshAccessToken();
@@ -37,6 +40,7 @@ export async function getCookie(name: string): Promise<string | undefined> {
 export async function getCurrentWeather(location: string): Promise<WeatherData | Error> {
     try {
         const cookie = await getCookie("accessToken");
+        
         const res = await api.weather.current({ location }).get({
             headers: { authorization: `Bearer ${cookie}` },
         });
