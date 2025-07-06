@@ -4,6 +4,7 @@ import { useThemeStore } from '@context/ThemeContext';
 import { getFarmList } from '@client/farmer/clientFarmer';
 import { FarmData } from '../../../server/src/farmer.services/farmer.interface';
 import { PlantScanModal } from '../Scan/PlantScanModal';
+import { SoilScanModal } from '../Scan/SoilScanModal';
 import './FarmProfile.css';
 
 const FarmProfile = () => {
@@ -12,7 +13,8 @@ const FarmProfile = () => {
   const [farm, setFarm] = useState<FarmData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showScanModal, setShowScanModal] = useState(false);
+  const [showPlantScanModal, setShowPlantScanModal] = useState(false);
+  const [showSoilScanModal, setShowSoilScanModal] = useState(false);
   const { isDarkMode } = useThemeStore();
   const location = useLocation();
 
@@ -52,7 +54,7 @@ const FarmProfile = () => {
     );
   }
 
-  const handleScanSubmit = async (scanData: {
+  const handlePlantScanSubmit = async (scanData: {
     imageBytes: string;
     cropType: string;
     farmName: string;
@@ -60,13 +62,24 @@ const FarmProfile = () => {
     note?: string;
   }) => {
     try {
-      // TODO: Implement API call to submit scan data
+      // TODO: Implement API call to submit plant scan data
       console.log('Submitting plant scan:', scanData);
       // Example API call:
       // const result = await submitPlantScan(scanData);
-      // You might want to show a success message or navigate to scan results
     } catch (error) {
       console.error('Error submitting plant scan:', error);
+      // Handle error (show error message to user)
+    }
+  };
+
+  const handleSoilScanSubmit = async (scanData: any) => {
+    try {
+      // TODO: Implement API call to submit soil scan data
+      console.log('Submitting soil scan:', scanData);
+      // Example API call:
+      // const result = await submitSoilScan(scanData);
+    } catch (error) {
+      console.error('Error submitting soil scan:', error);
       // Handle error (show error message to user)
     }
   };
@@ -126,7 +139,7 @@ const FarmProfile = () => {
                 <button 
                   type="button"
                   className="scan-button crop-scan"
-                  onClick={() => setShowScanModal(true)}
+                  onClick={() => setShowPlantScanModal(true)}
                 >
                   <i className="fas fa-leaf"></i>
                   <span>Scan Plant Health</span>
@@ -134,10 +147,7 @@ const FarmProfile = () => {
                 <button 
                   type="button"
                   className="scan-button soil-scan"
-                  onClick={() => {
-                    // TODO: Implement soil scan functionality
-                    console.log('Soil scan initiated for farm:', farmId);
-                  }}
+                  onClick={() => setShowSoilScanModal(true)}
                 >
                   <i className="fas fa-seedling"></i>
                   <span>Soil Analysis</span>
@@ -145,10 +155,19 @@ const FarmProfile = () => {
               </div>
               
               <PlantScanModal
-                isOpen={showScanModal}
-                onClose={() => setShowScanModal(false)}
+                isOpen={showPlantScanModal}
+                onClose={() => setShowPlantScanModal(false)}
                 farm={farm}
-                onSubmit={handleScanSubmit}
+                onSubmit={handlePlantScanSubmit}
+              />
+              
+              <SoilScanModal
+                isOpen={showSoilScanModal}
+                onClose={() => setShowSoilScanModal(false)}
+                farm={farm}
+                username="current_user" // Replace with actual username from auth context
+                sensorId="sensor_123" // Replace with actual sensor ID
+                onSubmit={handleSoilScanSubmit}
               />
             </div>
           </div>
