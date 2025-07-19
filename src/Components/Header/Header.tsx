@@ -1,14 +1,10 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback } from 'react';
 import { Link } from 'wouter';
-import LoginModal from '../InnerPages/LoginModal';
-import { useAuthStore } from '../../context/AuthContext';
 import { useThemeStore } from '../../context/ThemeContext';
 import "./Header.css";
 
 
 const Header = () => {
-  const [showLogin, setShowLogin] = useState(false);
-  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const { isDarkMode, toggleTheme } = useThemeStore();
 
   // Handler to open mobile menu
@@ -92,7 +88,7 @@ const Header = () => {
                   <div className="navbar-wrap push-menu main-menu d-none d-lg-flex">
                     <ul className="navigation">
                       <li><Link to="/">Home</Link></li>
-                      <li><a href="https://decentragri.gitbook.io/decentragri.com/" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
+                      <li><a href="/assets/whitepaper/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
                       <li><Link to="/about">About</Link></li>
                       <li><Link to="/contact">Contact</Link></li>
                     </ul>
@@ -108,11 +104,7 @@ const Header = () => {
                           <i className={`fas ${isDarkMode ? "fa-sun" : "fa-moon"}`} />
                         </button>
                       </li>
-                      {!isLoggedIn && (
-                        <li className="header-btn">
-                          <button className="btn" onClick={() => setShowLogin(true)} type="button">LOGIN</button>
-                        </li>
-                      )}
+
                     </ul>
                   </div>
                 </nav>
@@ -183,16 +175,7 @@ const Header = () => {
                       </ul>
                     </nav>
                     
-                    <div className="mobile-cta">
-                      {!isLoggedIn && (
-                        <button 
-                          className="btn btn-login" 
-                          onClick={() => { setShowLogin(true); closeMobileMenu(); }}
-                        >
-                          Login
-                        </button>
-                      )}
-                    </div>
+
                   </div>
                   <div className="social-links">
                     <h4 className="social-links-title">Follow us on:</h4>
@@ -211,7 +194,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
     </header>
   )
 }

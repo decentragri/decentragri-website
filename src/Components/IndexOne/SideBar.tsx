@@ -1,7 +1,6 @@
 import { useLocation } from "wouter";
 import { useCallback, useEffect } from "preact/hooks";
 import { JSX } from "preact";
-import { useAuthStore } from '../../context/AuthContext';
 import { useThemeStore } from '../../context/ThemeContext';
 
 interface MenuItem {
@@ -9,25 +8,14 @@ interface MenuItem {
   icon: string;
 }
 
-// Menu items for logged out users
-const publicMenuItems: MenuItem[] = [
+// Menu items for the static site
+const menuItems: MenuItem[] = [
   { href: "/", icon: "fi-sr-home" },
-];
-
-// Menu items for authenticated users
-const authenticatedMenuItems: MenuItem[] = [
-  { href: "/dashboard", icon: "fi-sr-apps" },
-  { href: "/dashboard/farm", icon: "fi-sr-leaf" },
-  // { href: "/farm-data", icon: "fi-sr-chart-line" },
-  { href: "/marketplace", icon: "fi-sr-shop" },
-  { href: "/dashboard/staking", icon: "fi-sr-dollar" },
-  { href: "/wallet", icon: "fi-sr-wallet" },
-  { href: "/community", icon: "fi-sr-man-head" },
-  { href: "/settings", icon: "fi-sr-settings" }
+  { href: "/about", icon: "fi-sr-info" },
+  { href: "/contact", icon: "fi-sr-envelope" }
 ];
 
 const SideBar = (): JSX.Element => {
-  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const [location, setLocation] = useLocation();
   const { isDarkMode, toggleTheme } = useThemeStore();
 
@@ -39,8 +27,7 @@ const SideBar = (): JSX.Element => {
     [setLocation]
   );
 
-  // Use different menu items based on authentication state
-  const menuItems = isLoggedIn ? authenticatedMenuItems : publicMenuItems;
+  // Menu items for the static site
 
   // Apply dark mode class to the root element
   useEffect(() => {
@@ -52,7 +39,7 @@ const SideBar = (): JSX.Element => {
   }, [isDarkMode]);
 
   return (
-    <div className={`sidebar ${!isLoggedIn ? 'hidden-on-mobile' : ''}`}>
+    <div className="sidebar">
       <div className="sidebar-logo mb-25">
         <a href="/">
           <img src="/assets/img/logo/decentra_logo2.png" alt="DecentrAgri Logo" />

@@ -31,7 +31,7 @@ const Footer = () => {
                 <h4 className="fw-title">Navigation</h4>
                 <ul className="fw-links">
                   <li><a href="/">Home</a></li>
-                  <li><a href="https://decentragri.gitbook.io/decentragri.com/" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
+                  <li><a href="/assets/whitepaper/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
                   <li><a href="/about">About</a></li>
                   <li><a href="/contact">Contact</a></li>
                 </ul>

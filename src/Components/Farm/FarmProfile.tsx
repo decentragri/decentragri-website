@@ -16,19 +16,179 @@ const FarmProfile = () => {
   const [farm, setFarm] = useState<FarmData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showPlantScanModal, setShowPlantScanModal] = useState(false);
-  const [showSoilScanModal, setShowSoilScanModal] = useState(false);
-  const [selectedScan, setSelectedScan] = useState<any>(null);
-  const [scans, setScans] = useState<Array<{
+  // Define types for our scan data
+  type ScanBase = {
     id: string;
     type: 'plant' | 'soil';
     date: string;
     preview: {
       title: string;
-      values: Record<string, any>;
+      values: Record<string, string>;
     };
     details: Record<string, any>;
-  }>>([]);
+  };
+
+  const [showPlantScanModal, setShowPlantScanModal] = useState(false);
+  const [showSoilScanModal, setShowSoilScanModal] = useState(false);
+  const [selectedScan, setSelectedScan] = useState<ScanBase | null>(null);
+  
+  // Mock data for plant scans and soil analyses
+  const initialScans: ScanBase[] = [
+    // Plant Scans
+    {
+      id: 'plant-1',
+      type: 'plant' as const,
+      date: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(), // Yesterday
+      preview: {
+        title: 'Corn Field Health Scan',
+        values: {
+          'Crop Type': 'Corn',
+          'Status': 'Healthy',
+          'Disease Risk': 'Low',
+          'Confidence': '92%'
+        }
+      },
+      details: {
+        'Scan ID': 'PLANT-3F9H2K1L',
+        'Date': new Date(Date.now() - 24 * 60 * 60 * 1000).toLocaleString(),
+        'Farm': 'Sunny Acres',
+        'Crop Type': 'Corn (Zea mays)',
+        'Status': 'Healthy',
+        'Disease Risk': 'Low (8%)',
+        'Confidence': '92%',
+        'Location': '14.6760° N, 121.0437° E',
+        'Notes': 'No signs of disease detected. Plants show good growth and color.',
+        'Leaf Condition': 'Normal',
+        'Growth Stage': 'V6 (6th leaf stage)',
+        'Image Resolution': '3024x4032',
+        'Analysis Model': 'PlantNet v2.3.1',
+        'Recommendations': ['Continue current watering schedule', 'Check again in 1 week']
+      }
+    },
+    {
+      id: 'plant-2',
+      type: 'plant' as const,
+      date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(), // 1 week ago
+      preview: {
+        title: 'Rice Paddy Health Scan',
+        values: {
+          'Crop Type': 'Rice',
+          'Status': 'Warning',
+          'Disease Risk': 'Medium',
+          'Confidence': '87%'
+        }
+      },
+      details: {
+        'Scan ID': 'PLANT-7H2J9K1M',
+        'Date': new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toLocaleString(),
+        'Farm': 'Green Valley Fields',
+        'Crop Type': 'Rice (Oryza sativa)',
+        'Status': 'Warning - Possible nutrient deficiency',
+        'Disease Risk': 'Medium (35%)',
+        'Confidence': '87%',
+        'Location': '14.6789° N, 121.0456° E',
+        'Notes': 'Yellowing of lower leaves detected. Possible nitrogen deficiency.',
+        'Leaf Condition': 'Yellowing lower leaves',
+        'Growth Stage': 'Tillering',
+        'Image Resolution': '3024x4032',
+        'Analysis Model': 'PlantNet v2.3.1',
+        'Recommendations': [
+          'Apply nitrogen-rich fertilizer',
+          'Check soil moisture levels',
+          'Rescan in 3 days'
+        ]
+      }
+    },
+    // Soil Analyses
+    {
+      id: 'soil-1',
+      type: 'soil' as const,
+      date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
+      preview: {
+        title: 'Field A1 Soil Analysis',
+        values: {
+          'Moisture': '42%',
+          'pH': '6.5',
+          'Fertility': '78%',
+          'Temp': '28°C'
+        }
+      },
+      details: {
+        'Analysis ID': 'SOIL-5K9L2M3N',
+        'Date': new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toLocaleString(),
+        'Farm': 'Sunny Acres',
+        'Sensor ID': 'SENSOR-A1-2023',
+        'Moisture': '42%',
+        'pH Level': '6.5',
+        'Fertility': '78%',
+        'Temperature': '28°C',
+        'Sunlight': '85,000 lux',
+        'Humidity': '65%',
+        'Crop Type': 'Corn',
+        'Analysis Model': 'SoilMaster Pro v1.2.0',
+        'Data Points': '15,230',
+        'Confidence': '94%',
+        'Nitrogen (N)': 'High',
+        'Phosphorus (P)': 'Medium',
+        'Potassium (K)': 'High',
+        'Organic Matter': '3.2%',
+        'Salinity': '0.5 dS/m (Low)',
+        'Recommendations': [
+          'Adequate moisture levels maintained',
+          'Ideal pH for most crops',
+          'Consider phosphorus supplement for next planting'
+        ]
+      }
+    },
+    {
+      id: 'soil-2',
+      type: 'soil' as const,
+      date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(), // 10 days ago
+      preview: {
+        title: 'Field B2 Soil Analysis',
+        values: {
+          'Moisture': '28%',
+          'pH': '5.2',
+          'Fertility': '65%',
+          'Temp': '32°C'
+        }
+      },
+      details: {
+        'Analysis ID': 'SOIL-8P7O6I9U',
+        'Date': new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toLocaleString(),
+        'Farm': 'Green Valley Fields',
+        'Sensor ID': 'SENSOR-B2-2023',
+        'Moisture': '28%',
+        'pH Level': '5.2',
+        'Fertility': '65%',
+        'Temperature': '32°C',
+        'Sunlight': '92,000 lux',
+        'Humidity': '58%',
+        'Crop Type': 'Rice',
+        'Analysis Model': 'SoilMaster Pro v1.2.0',
+        'Data Points': '18,450',
+        'Confidence': '91%',
+        'Nitrogen (N)': 'Medium',
+        'Phosphorus (P)': 'Low',
+        'Potassium (K)': 'Medium',
+        'Organic Matter': '2.1%',
+        'Salinity': '0.8 dS/m (Moderate)',
+        'Alerts': [
+          'Low soil moisture detected',
+          'Slightly acidic pH - consider liming',
+          'Low phosphorus levels'
+        ],
+        'Recommendations': [
+          'Increase irrigation frequency',
+          'Apply agricultural lime to raise pH',
+          'Add phosphorus-rich fertilizer',
+          'Consider adding organic matter to improve water retention'
+        ]
+      }
+    }
+  ];
+
+  const [scans, setScans] = useState(initialScans);
   const { isDarkMode } = useThemeStore();
   const location = useLocation();
 
@@ -80,9 +240,9 @@ const FarmProfile = () => {
       console.log('Submitting plant scan:', scanData);
       
       // Mock response - in a real app, this would come from your API
-      const newScan = {
+      const newScan: ScanBase = {
         id: `plant-${Date.now()}`,
-        type: 'plant' as const,
+        type: 'plant',
         date: new Date().toISOString(),
         preview: {
           title: 'Plant Health Scan',
@@ -105,8 +265,11 @@ const FarmProfile = () => {
             ? `${scanData.location.lat.toFixed(4)}, ${scanData.location.lng.toFixed(4)}`
             : 'Not available',
           'Notes': scanData.note || 'No additional notes',
+          'Leaf Condition': 'Normal',
+          'Growth Stage': 'Vegetative',
           'Image Resolution': '3024x4032',
-          'Analysis Model': 'PlantNet v2.3.1'
+          'Analysis Model': 'PlantNet v2.3.1',
+          'Recommendations': ['Continue current watering schedule', 'Check again in 1 week']
         }
       };
 
@@ -124,9 +287,9 @@ const FarmProfile = () => {
       console.log('Submitting soil scan:', scanData);
       
       // Mock response - in a real app, this would come from your API
-      const newScan = {
+      const newScan: ScanBase = {
         id: `soil-${Date.now()}`,
-        type: 'soil' as const,
+        type: 'soil',
         date: new Date().toISOString(),
         preview: {
           title: 'Soil Analysis',
@@ -151,7 +314,17 @@ const FarmProfile = () => {
           'Crop Type': scanData.cropType || 'Not specified',
           'Analysis Model': 'SoilMaster Pro v1.2.0',
           'Data Points': '12,450',
-          'Confidence': '92%'
+          'Confidence': '92%',
+          'Nitrogen (N)': 'Medium',
+          'Phosphorus (P)': 'Medium',
+          'Potassium (K)': 'High',
+          'Organic Matter': '3.1%',
+          'Salinity': '0.6 dS/m (Low)',
+          'Recommendations': [
+            'Ideal soil conditions maintained',
+            'Continue current fertilization schedule',
+            'Check again in 2 weeks'
+          ]
         }
       };
 

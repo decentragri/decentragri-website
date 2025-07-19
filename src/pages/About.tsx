@@ -13,42 +13,52 @@ import CallToAction from '../Components/Common/CallToAction';
 
 // Team member data
 const teamMembers = [
-  {
-    name: 'Joshua Demate',
-    role: 'Project Lead, Field Operations',
-    image: '/assets/img/team/myng_full.png',
-    bio: 'Works directly with farmers to implement and optimize our solutions in the field.',
-    facebook: 'https://www.facebook.com/joshua.demate.3'
-  },
+
   {
     name: 'Yehna Lee',
-    role: 'Growth Lead, OIC',
+    role: 'Chief Executive Officer',
     image: '/assets/img/team/dahl_full.png',
     bio: 'Visionary leader with a passion for agricultural innovation and sustainable farming solutions.',
-    twitter: 'https://x.com/alviedahl'
+    twitter: 'https://x.com/alviedahl',
+    linkedin: 'https://www.linkedin.com/in/yehna-lee-0b539b26a/'
   },
   {
     name: 'Khyle De Jesus-Santos',
-    role: 'Biotech Researcher, Data analyst',
+    role: 'Chief Product Officer, Biotechnology Researcher',
     image: '/assets/img/team/khyle_full.png',
     bio: 'Expert in sustainable farming practices and crop optimization techniques.',
     linkedin: 'https://www.linkedin.com/in/khyle-de-jesus-10444a197/'
   },
   {
     name: 'Anthony Arriola',
-    role: 'Lead Developer',
+    role: 'Chief Technology Officer',
     image: 'https://randomuser.me/api/portraits/women/44.jpg',
     bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
     github: 'https://github.com/YirenNing24',
     twitter: 'https://x.com/ryujiminssi'
   },
   {
+    name: 'Joshua Demate',
+    role: 'Regional Director, Camarines Sur',
+    image: '/assets/img/team/myng_full.png',
+    bio: 'Works directly with farmers to implement and optimize our solutions in the field.',
+    facebook: 'https://www.facebook.com/joshua.demate.3'
+  },
+  {
+    name: 'Carmela De Guzman ',
+    role: 'Regional Director, Bulacan',
+    image: '/assets/img/team/mela.jpg',
+    bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
+    linkedin: 'https://x.com/ryujiminssi'
+  },
+  {
     name: 'Mary Pielago',
-    role: 'Social Media Manager, Field Operations',
+    role: 'Marketing Director',
     image: '/assets/img/team/mary_full.jpeg',
     bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
     twitter: 'https://x.com/ryujiminssi'
-  }
+  },
+
 ];
 
 // Core values data

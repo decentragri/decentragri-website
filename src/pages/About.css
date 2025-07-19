@@ -328,9 +328,13 @@ section {
   transition: var(--transition);
 }
 
-/* Adjust Mary's image position */
+/* Adjust team member image positions */
 .team-image img[data-member="mary-pielago"] {
   object-position: center 5%;
+}
+
+.team-image img[data-member="carmela-de-guzman"] {
+  object-position: center 20%;
 }
 
 .team-card:hover .team-image img {

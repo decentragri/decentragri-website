@@ -1,24 +1,18 @@
 import { useCallback } from 'preact/hooks';
 import { useLocation } from 'wouter';
-import { useThemeStore } from '@context/ThemeContext';
-import { useAuthStore } from '@context/AuthContext';
+import { useThemeStore } from '../../context/ThemeContext';
 import './NotFound.css';
 
 const NotFound = () => {
   const [_, setLocation] = useLocation();
   const { isDarkMode } = useThemeStore();
-  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   const handleGoHome = useCallback((e: Event) => {
     e.preventDefault();
-    if (isLoggedIn) {
-      setLocation('/dashboard');
-    } else {
-      setLocation('/');
-    }
+    setLocation('/');
     // Force a page reload to ensure proper rendering
     window.location.reload();
-  }, [setLocation, isLoggedIn]);
+  }, [setLocation]);
 
   const handleGoBack = useCallback(() => {
     window.history.back();
