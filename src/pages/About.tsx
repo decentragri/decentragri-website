@@ -32,7 +32,7 @@ const teamMembers = [
   {
     name: 'Anthony Arriola',
     role: 'Chief Technology Officer',
-    image: 'https://randomuser.me/api/portraits/women/44.jpg',
+    image: '/assets/img/team/anthony_full.png',
     bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
     github: 'https://github.com/YirenNing24',
     twitter: 'https://x.com/ryujiminssi'
@@ -51,13 +51,7 @@ const teamMembers = [
     bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
     linkedin: 'https://x.com/ryujiminssi'
   },
-  {
-    name: 'Mary Pielago',
-    role: 'Marketing Director',
-    image: '/assets/img/team/mary_full.jpeg',
-    bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
-    twitter: 'https://x.com/ryujiminssi'
-  },
+
 
 ];
 
