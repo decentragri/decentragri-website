@@ -103,7 +103,7 @@ const Header = () => {
                         >
                           <i className={`fas ${isDarkMode ? "fa-sun" : "fa-moon"}`} />
                         </button>
-                      </li>
+                      </li>g
                     </ul>
                   </div>
                 </nav>

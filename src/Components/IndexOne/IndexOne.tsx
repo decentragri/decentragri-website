@@ -29,7 +29,7 @@ const IndexOne = () => {
           title="Ready to Get Started?"
           subtitle="Join our community of farmers and start transforming your agricultural practices today"
           primaryButtonText="Sign Up Now"
-          primaryButtonLink="/signup"
+          primaryButtonLink="/contact"
         />
         {/* <TopCollection/>
         <AreaBg/>
