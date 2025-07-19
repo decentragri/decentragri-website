@@ -65,6 +65,6 @@ export default app;
 
 
 app.listen({ port }, () => {
-  console.log(`DecentrAgri HTTP server is running on http://${hostname}:${port}/`);
+  console.log(`Decentragri HTTP server is running on http://${hostname}:${port}/`);
 });
 

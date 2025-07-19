@@ -24,7 +24,7 @@ const NotFound = () => {
         <div className="logo-container">
           <img 
             src="/assets/img/logo/decentra_logo2.png" 
-            alt="DecentrAgri Logo" 
+            alt="Decentragri Logo" 
             className="not-found-logo"
           />
         </div>

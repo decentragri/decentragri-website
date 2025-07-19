@@ -222,7 +222,7 @@ class SensorData {
                             cropType: sensorReadings.cropType,
                             timestamp: sensorReadings.createdAt,
                             username: sensorReadings.username,
-                            source: "DecentrAgri AI",
+                            source: "Decentragri AI",
                             interpretation: sensorReadings.interpretation // 👈 full object saved here
                         },
                         attributes: [

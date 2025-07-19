@@ -26,7 +26,7 @@ const Contact = () => {
             </div>
             <div className="contact-map">
               <iframe
-                title="DecentrAgri Location"
+                title="Decentragri Location"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=123.45710%2C13.68728%2C123.47710%2C13.70728&layer=mapnik"
                 style={{ border: 0, width: '100%', height: '180px', borderRadius: '10px' }}
                 allowFullScreen
@@ -40,7 +40,7 @@ const Contact = () => {
           <h2>Frequently Asked Questions</h2>
           <div className="faq-list compact-faq-list">
             <div className="faq-item">
-              <h3>How can I partner with DecentrAgri?</h3>
+              <h3>How can I partner with Decentragri?</h3>
               <p>Contact us via the form or email for partnership opportunities. We welcome collaborations with agri-tech innovators, NGOs, and government agencies.</p>
             </div>
             <div className="faq-item">

@@ -6,6 +6,6 @@
 
 
 // app.listen({ port }, async () => {
-//     console.log(`DecentrAgri HTTP server is running on port http://${hostname}:${port}/`);
+//     console.log(`Decentragri HTTP server is running on port http://${hostname}:${port}/`);
 //     }
 // );

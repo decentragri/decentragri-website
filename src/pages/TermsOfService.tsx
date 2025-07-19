@@ -43,13 +43,13 @@ const TermsOfService = () => {
               <div className="privacy-section">
                 <h2 className="privacy-heading">1. Acceptance of Terms</h2>
                 <p className="privacy-text">
-                  By accessing or using the DecentrAgri platform ("Service"), you agree to be bound by these Terms of Service ("Terms"). 
+                  By accessing or using the Decentragri platform ("Service"), you agree to be bound by these Terms of Service ("Terms"). 
                   If you do not agree to these Terms, please do not use our Service.
                 </p>
 
                 <h2 className="privacy-heading">2. Description of Service</h2>
                 <p className="privacy-text">
-                  DecentrAgri provides an agricultural technology platform that enables farmers to monitor and manage their farming operations. 
+                  Decentragri provides an agricultural technology platform that enables farmers to monitor and manage their farming operations. 
                   The Service includes data collection, analysis, and reporting tools designed to improve agricultural productivity and sustainability.
                 </p>
 
@@ -79,7 +79,7 @@ const TermsOfService = () => {
                 <h2 className="privacy-heading">5. Intellectual Property</h2>
                 <p className="privacy-text">
                   All content, features, and functionality of the Service, including but not limited to text, graphics, logos, 
-                  and software, are the exclusive property of DecentrAgri and are protected by international copyright, trademark, 
+                  and software, are the exclusive property of Decentragri and are protected by international copyright, trademark, 
                   and other intellectual property laws.
                 </p>
                 <p className="privacy-text">
@@ -89,7 +89,7 @@ const TermsOfService = () => {
 
                 <h2 className="privacy-heading">6. Limitation of Liability</h2>
                 <p className="privacy-text">
-                  To the maximum extent permitted by law, DecentrAgri shall not be liable for any indirect, incidental, special, 
+                  To the maximum extent permitted by law, Decentragri shall not be liable for any indirect, incidental, special, 
                   consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, 
                   or any loss of data, use, goodwill, or other intangible losses resulting from:
                 </p>

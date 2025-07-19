@@ -148,7 +148,7 @@ export default function About() {
             <div className="mission-content">
               <div className="mission-text">
                 <p>
-                  At DecentrAgri, we believe that innovation and nature are not opposing forces, but partners. 
+                  At Decentragri, we believe that innovation and nature are not opposing forces, but partners. 
                   Our commitment is to develop technologies that not only simplify and enhance everyday agricultural 
                   work but also actively contribute to preserving our environment.
                 </p>
@@ -260,20 +260,20 @@ export default function About() {
               <div className="founder-image">
                 <img 
                   src="/assets/img/logo/decentra_logo2.png" 
-                  alt="DecentrAgri" 
+                  alt="Decentragri" 
                 />
               </div>
               <div className="founder-message">
                 <h2>A Message from Our Team</h2>
                 <blockquote>
-                  "At DecentrAgri, we're not just building technology—we're building a movement. 
+                  "At Decentragri, we're not just building technology—we're building a movement. 
                   A movement towards sustainable agriculture, empowered farmers, and a healthier planet. 
                   Every line of code we write, every feature we develop, and every farmer we help is a step 
                   closer to the future we envision."
                 </blockquote>
                 <div className="founder-signature">
                   <p className="founder-name">Founding team</p>
-                  <p className="founder-title">DecentrAgri</p>
+                  <p className="founder-title">Decentragri</p>
                 </div>
               </div>
             </div>

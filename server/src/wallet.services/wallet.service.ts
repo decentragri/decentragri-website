@@ -55,7 +55,7 @@ class WalletService {
   /**
    * Retrieves the wallet balances and token prices for a given wallet address.
    *
-   * This method fetches balances for ETH, SWELL, DecentrAgri (DAGRI), and rsWETH tokens,
+   * This method fetches balances for ETH, SWELL, Decentragri (DAGRI), and rsWETH tokens,
    * as well as their respective USD prices. It handles errors gracefully by returning a price of 0
    * if fetching the price fails for any token.
    *

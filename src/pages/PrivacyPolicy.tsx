@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
               <div className="privacy-section mb-5">
                 <h2 className="privacy-heading">1. Introduction</h2>
                 <p className="privacy-text">
-                  Welcome to DecentrAgri. We respect your privacy and are committed to protecting your personal data. 
+                  Welcome to Decentragri. We respect your privacy and are committed to protecting your personal data. 
                   This Privacy Policy will inform you about how we look after your personal data when you visit our website 
                   and tell you about your privacy rights and how the law protects you.
                 </p>

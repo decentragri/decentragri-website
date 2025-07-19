@@ -42,7 +42,7 @@ const SideBar = (): JSX.Element => {
     <div className="sidebar">
       <div className="sidebar-logo mb-25">
         <a href="/">
-          <img src="/assets/img/logo/decentra_logo2.png" alt="DecentrAgri Logo" />
+          <img src="/assets/img/logo/decentra_logo2.png" alt="Decentragri Logo" />
         </a>
       </div>
       <div className="sidebar-icon">
