@@ -45,7 +45,7 @@ const teamMembers = [
     facebook: 'https://www.facebook.com/joshua.demate.3'
   },
   {
-    name: 'Carmela De Guzman ',
+    name: 'Carmela Dela Cruz',
     role: 'Regional Director, Bulacan',
     image: '/assets/img/team/mela.jpg',
     bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
