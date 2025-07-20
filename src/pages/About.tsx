@@ -38,13 +38,6 @@ const teamMembers = [
     twitter: 'https://x.com/ryujiminssi'
   },
   {
-    name: 'Joshua Demate',
-    role: 'Regional Director, Camarines Sur',
-    image: '/assets/img/team/myng_full.png',
-    bio: 'Works directly with farmers to implement and optimize our solutions in the field.',
-    facebook: 'https://www.facebook.com/joshua.demate.3'
-  },
-  {
     name: 'Carmela Dela Cruz',
     role: 'Regional Director, Bulacan',
     image: '/assets/img/team/mela.jpg',
