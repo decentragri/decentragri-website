@@ -6,6 +6,7 @@ import BlogDetails from './pages/BlogDetails';
 import Home from './pages/Home';
 import About from "./pages/About";
 import ContactPage from "./pages/ContactPage";
+import TreeNFTs from "./pages/TreeNFTs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFoundPage from './pages/NotFoundPage';
@@ -50,6 +51,7 @@ export function App() {
 							<Route path="/" component={Home} />
 							<Route path="/about" component={About} />
 							<Route path="/contact" component={ContactPage} />
+							<Route path="/tree-nfts" component={TreeNFTs} />
 							{/* <Route path="/blog" component={Blog} />
 							<Route path="/blog-details" component={BlogDetails} /> */}
 							<Route path="/privacy-policy" component={PrivacyPolicy} />

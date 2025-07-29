@@ -1,0 +1,595 @@
+/* Tree NFTs Page - Dark Mode Design */
+.tree-nfts-page {
+  min-height: 100vh;
+  background: #1a1a1a;
+  color: #eaeaea;
+  overflow-x: hidden;
+}
+
+.tree-nfts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.tree-nfts-hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, rgba(168, 255, 4, 0.03) 50%, #1a1a1a 100%);
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tree-nfts-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.tree-nfts-floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(168, 255, 4, 0.1), rgba(109, 190, 69, 0.05));
+  backdrop-filter: blur(20px);
+  animation: float 8s ease-in-out infinite;
+}
+
+.tree-nfts-floating-element.element-1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.tree-nfts-floating-element.element-2 {
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  right: -5%;
+  animation-delay: 3s;
+}
+
+.tree-nfts-floating-element.element-3 {
+  width: 150px;
+  height: 150px;
+  top: 30%;
+  left: 80%;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
+}
+
+.tree-nfts-hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.tree-nfts-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(168, 255, 4, 0.1);
+  color: var(--lime-color, #A8FF04);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  border: 2px solid rgba(168, 255, 4, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.tree-nfts-title {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+}
+
+.tree-nfts-gradient {
+  background: var(--nft-gradient-color, linear-gradient(79deg, #A8FF04 0%, #6DBE45 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tree-nfts-subtitle {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #ccc;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Crops Section */
+.tree-nfts-crops-section {
+  padding: 100px 0;
+  background: #232323;
+}
+
+.tree-nfts-section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.tree-nfts-section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  color: #eaeaea;
+}
+
+.tree-nfts-section-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tree-nfts-reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.tree-nfts-reason-card {
+  background: rgba(168, 255, 4, 0.05);
+  border: 1px solid rgba(168, 255, 4, 0.1);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tree-nfts-reason-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(168, 255, 4, 0.3);
+  box-shadow: 0 20px 40px rgba(168, 255, 4, 0.1);
+}
+
+.tree-nfts-reason-number {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--nft-gradient-color, linear-gradient(79deg, #A8FF04 0%, #6DBE45 100%));
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.tree-nfts-reason-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 24px 0 16px;
+  color: #eaeaea;
+}
+
+.tree-nfts-reason-card p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.tree-nfts-crops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.tree-nfts-crop-card {
+  background: rgba(35, 35, 35, 0.8);
+  border: 1px solid rgba(168, 255, 4, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.tree-nfts-crop-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(168, 255, 4, 0.3);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.tree-nfts-crop-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.tree-nfts-crop-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.tree-nfts-crop-card:hover .tree-nfts-crop-image img {
+  transform: scale(1.1);
+}
+
+.tree-nfts-crop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(168, 255, 4, 0.1), rgba(109, 190, 69, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tree-nfts-crop-card:hover .tree-nfts-crop-overlay {
+  opacity: 1;
+}
+
+.tree-nfts-crop-content {
+  padding: 24px;
+}
+
+.tree-nfts-crop-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #eaeaea;
+}
+
+.tree-nfts-crop-description {
+  color: #ccc;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.tree-nfts-crop-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tree-nfts-crop-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(168, 255, 4, 0.1);
+}
+
+.tree-nfts-crop-stat:last-child {
+  border-bottom: none;
+}
+
+.tree-nfts-stat-label {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.tree-nfts-stat-value {
+  font-weight: 700;
+  color: #eaeaea;
+}
+
+.gradient-text {
+  background: var(--nft-gradient-color, linear-gradient(79deg, #A8FF04 0%, #6DBE45 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tokenization Section */
+.tree-nfts-tokenization-section {
+  padding: 100px 0;
+  background: #1a1a1a;
+}
+
+.tree-nfts-tokenization-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 40px;
+}
+
+.tree-nfts-token-card {
+  background: rgba(35, 35, 35, 0.8);
+  border: 1px solid rgba(168, 255, 4, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tree-nfts-token-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--nft-gradient-color, linear-gradient(79deg, #A8FF04 0%, #6DBE45 100%));
+}
+
+.tree-nfts-token-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(168, 255, 4, 0.3);
+  box-shadow: 0 20px 60px rgba(168, 255, 4, 0.1);
+}
+
+.tree-nfts-token-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.tree-nfts-token-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--nft-gradient-color, linear-gradient(79deg, #A8FF04 0%, #6DBE45 100%));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.tree-nfts-token-badge {
+  background: rgba(168, 255, 4, 0.1);
+  color: var(--lime-color, #A8FF04);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid rgba(168, 255, 4, 0.2);
+}
+
+.tree-nfts-token-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #eaeaea;
+}
+
+.tree-nfts-token-description {
+  color: #ccc;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.tree-nfts-metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.tree-nfts-metadata-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.tree-nfts-metadata-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(168, 255, 4, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lime-color, #A8FF04);
+  flex-shrink: 0;
+}
+
+.tree-nfts-metadata-content h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #eaeaea;
+}
+
+.tree-nfts-metadata-content p {
+  font-size: 0.85rem;
+  color: #999;
+  line-height: 1.4;
+}
+
+.tree-nfts-yield-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tree-nfts-yield-example {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(168, 255, 4, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(168, 255, 4, 0.1);
+}
+
+.tree-nfts-yield-ratio {
+  font-size: 2rem;
+  font-weight: 900;
+  background: var(--nft-gradient-color, linear-gradient(79deg, #A8FF04 0%, #6DBE45 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tree-nfts-yield-text {
+  color: #eaeaea;
+  font-size: 1.1rem;
+}
+
+.tree-nfts-yield-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tree-nfts-yield-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.tree-nfts-action-icon {
+  font-size: 1.2rem;
+}
+
+/* Market Section */
+.tree-nfts-market-section {
+  padding: 80px 0;
+  background: rgba(168, 255, 4, 0.02);
+}
+
+.tree-nfts-market-content {
+  text-align: center;
+}
+
+.tree-nfts-market-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 48px;
+  color: #eaeaea;
+}
+
+.tree-nfts-market-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.tree-nfts-market-stat {
+  text-align: center;
+}
+
+.tree-nfts-market-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #eaeaea;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.tree-nfts-market-label {
+  font-size: 1rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.tree-nfts-market-arrow {
+  font-size: 2rem;
+  color: var(--lime-color, #A8FF04);
+  font-weight: 900;
+}
+
+.tree-nfts-growth-badge {
+  background: var(--nft-gradient-color, linear-gradient(79deg, #A8FF04 0%, #6DBE45 100%));
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.tree-nfts-market-source {
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .tree-nfts-tokenization-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tree-nfts-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tree-nfts-hero {
+    padding: 80px 0 60px;
+  }
+  
+  .tree-nfts-title {
+    font-size: 2.5rem;
+  }
+  
+  .tree-nfts-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .tree-nfts-section-title {
+    font-size: 2.2rem;
+  }
+  
+  .tree-nfts-crops-grid,
+  .tree-nfts-tokenization-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tree-nfts-market-stats {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .tree-nfts-market-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .tree-nfts-metadata-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .tree-nfts-container {
+    padding: 0 16px;
+  }
+  
+  .tree-nfts-title {
+    font-size: 2rem;
+  }
+  
+  .tree-nfts-token-card {
+    padding: 24px;
+  }
+  
+  .tree-nfts-yield-example {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}

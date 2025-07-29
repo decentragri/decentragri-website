@@ -1,11 +1,6 @@
-import AreaBg from './AreaBg'
 import Banner from './Banner'
-import DesignNews from './DesignNews'
-import ExploreProduct from './ExploreProduct'
-import LatestNews from './LatestNews'
-import Testimonial from './Testimonial'
-import TopCollection from './TopCollection'
 import NarrativeSection from './NarrativeSection'
+import TokenizationSection from './TokenizationSection'
 import FieldCarousel from './FieldCarousel'
 import DecentragriFeatures from './DecentragriFeatures'
 import Partnerships from './Partnerships'
@@ -20,6 +15,7 @@ const IndexOne = () => {
         <Banner/>
         
         <NarrativeSection />
+        <TokenizationSection />
         <DecentragriFeatures />
         <FieldCarousel />
         <Partnerships />
