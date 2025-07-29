@@ -15,7 +15,7 @@ const NarrativeSection = () => (
       </div>
       <div className="narrative-image-wrap large">
         <img
-          src="https://www.decentragri.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero2.b3107d6b.png&w=3840&q=75"
+          src="/assets/img/banner/hero1.png"
           alt="Decentragri AI Farm"
           className="narrative-image"
           loading="lazy"
