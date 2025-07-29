@@ -109,9 +109,9 @@ export default function About() {
   const { isDarkMode } = useThemeStore();
 
   return (
-    <div className={`about-page ${isDarkMode ? 'dark-mode' : ''}`}>
+    <>
       <SideBar />
-      <div className="main-content">
+      <div className={`main-content about-page ${isDarkMode ? 'dark-mode' : ''}`}>
         <Header />
         
         {/* Hero Section */}
@@ -289,8 +289,8 @@ export default function About() {
           primaryButtonLink="/contact"
         />
 
-        <Footer />
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

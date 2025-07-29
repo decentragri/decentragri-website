@@ -27,14 +27,26 @@
   --text-muted: #aaaaaa;
 }
 
+/* Base Layout */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* Base Styles */
 .about-page {
   background-color: var(--bg-light);
   color: var(--text-dark);
   transition: var(--transition);
-  min-height: 100vh;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  position: relative;
 }
 
 .container {
