@@ -224,13 +224,13 @@ export default function About() {
                             </div>
                           </a>
                         )}
-                        {member.facebook && (
+                        {/* {member.facebook && (
                           <a href={member.facebook} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s Facebook`}>
                             <div style={{ display: 'inline-flex', margin: '0 5px' }}>
                               <FaFacebook size={20} color={isDarkMode ? '#fff' : '#333'} />
                             </div>
                           </a>
-                        )}
+                        )} */}
                         {member.github && (
                           <a href={member.github} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s GitHub`}>
                             <div style={{ display: 'inline-flex', margin: '0 5px' }}>

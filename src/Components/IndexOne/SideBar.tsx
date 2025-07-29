@@ -39,7 +39,7 @@ const SideBar = (): JSX.Element => {
   }, [isDarkMode]);
 
   return (
-    <div className="sidebar">
+    <div className="sidebar hidden-on-mobile">
       <div className="sidebar-logo mb-25">
         <a href="/">
           <img src="/assets/img/logo/decentra_logo2.png" alt="Decentragri Logo" />
