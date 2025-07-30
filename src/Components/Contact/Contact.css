@@ -161,8 +161,7 @@
 }
 
 .contact-info-card h2::before {
-  content: '💬';
-  font-size: 1.6rem;
+  display: none;
 }
 
 .contact-info-list {
@@ -234,8 +233,7 @@
 }
 
 .social-heading::before {
-  content: '🌐';
-  font-size: 1.2rem;
+  display: none;
 }
 
 .contact-social {
@@ -428,8 +426,7 @@
 }
 
 .contact-faq h2::before {
-  content: '❓';
-  font-size: 1.8rem;
+  display: none;
 }
 
 .faq-list {
@@ -504,8 +501,7 @@
 }
 
 .faq-item h3::before {
-  content: '💡';
-  font-size: 1.1rem;
+  display: none;
 }
 
 .faq-item p {
@@ -795,8 +791,7 @@ html.dark .faq-item,
   }
   
   .faq-item h3::before {
-    flex-shrink: 0;
-    margin-right: 8px;
+    display: none;
   }
   
   .faq-item p {
