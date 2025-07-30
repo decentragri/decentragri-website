@@ -6,7 +6,7 @@ const TokenizationSection = () => {
   const features = [
     {
       icon: <FaTree />,
-      title: "Tree NFTs (ERC-721)",
+      title: "Tree NFTs (ERC-1155)",
       description: "Unique digital assets representing verified trees with immutable ownership records and transparent history.",
       badge: "NFT",
       link: "/tree-nfts",
@@ -15,14 +15,15 @@ const TokenizationSection = () => {
     {
       icon: <FaCoins />,
       title: "Yield Tokens (ERC-20)",
-      description: "Fungible tokens representing agricultural yield, redeemable for physical produce or tradable on DEX platforms.",
+      description: "Fungible tokens representing agricultural yield, tradable on DEX platforms.",
       badge: "TOKEN",
-      clickable: false
+      link: "/tree-nfts",
+      clickable: true
     },
     {
       icon: <FaMapMarkedAlt />,
       title: "Field Plot Tokenization",
-      description: "Coming soon: Tokenize entire field plots to represent land yield ownership.",
+      description: "Coming soon: Tokenize field plots to represent land yield ownership.",
       badge: "SOON",
       clickable: false
     }
@@ -38,7 +39,7 @@ const TokenizationSection = () => {
     <section className="tokenization-section">
       <div className="tokenization-container">
         <div className="tokenization-header">
-          <div className="tokenization-badge">🚀 BLOCKCHAIN INNOVATION</div>
+
           <h2 className="tokenization-title">
             Transform Agriculture with <span className="tokenization-green">Asset Tokenization</span>
           </h2>

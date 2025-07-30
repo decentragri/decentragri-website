@@ -42,6 +42,7 @@ const DecentragriFeatures = () => (
             </div>
             <h3 className="decentragri-feature-title">{f.title}</h3>
             <p className="decentragri-feature-desc">{f.desc}</p>
+            <div className="decentragri-feature-glow"></div>
           </div>
         ))}
       </div>

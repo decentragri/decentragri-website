@@ -42,22 +42,43 @@
 }
 
 .decentragri-feature {
-  background: #fff;
-  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 255, 4, 0.1);
+  border-radius: 20px;
   padding: 36px 28px 32px 28px;
   flex: 1 1 320px;
   max-width: 350px;
   min-width: 260px;
-  box-shadow: 0 4px 32px 0 rgba(168,255,4,0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.18s, box-shadow 0.18s;
-  border: 1.5px solid var(--icon-border-color);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.decentragri-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--nft-gradient-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.decentragri-feature:hover::before {
+  transform: scaleX(1);
+}
+
 .decentragri-feature:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 40px 0 rgba(168,255,4,0.13);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 60px rgba(168, 255, 4, 0.15);
+  border-color: rgba(168, 255, 4, 0.3);
 }
 
 /* Dark Mode Styles */
@@ -66,13 +87,14 @@
 }
 
 .dark-mode .decentragri-feature {
-  background: #232323;
-  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.2);
-  border-color: #444;
+  background: rgba(35, 35, 35, 0.8);
+  backdrop-filter: blur(20px);
+  border-color: rgba(168, 255, 4, 0.1);
 }
 
 .dark-mode .decentragri-feature:hover {
-  box-shadow: 0 8px 40px 0 rgba(0, 195, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(168, 255, 4, 0.1);
+  border-color: rgba(168, 255, 4, 0.3);
 }
 
 .dark-mode .decentragri-features-title .decentragri-features-black {
@@ -119,6 +141,22 @@
   font-size: 1.05rem;
   color: var(--paragraph-text-color);
   line-height: 1.6;
+}
+
+.decentragri-feature-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(168, 255, 4, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.decentragri-feature:hover .decentragri-feature-glow {
+  opacity: 1;
 }
 
 .decentragri-feature-icon svg rect {

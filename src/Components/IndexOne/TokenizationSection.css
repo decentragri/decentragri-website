@@ -261,6 +261,10 @@
 }
 
 /* Dark Mode for clickable cards */
+.dark-mode .tokenization-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, rgba(168, 255, 4, 0.02) 100%);
+}
+
 .dark-mode .tokenization-card.clickable:hover {
   box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
   border-color: rgba(168, 255, 4, 0.5);

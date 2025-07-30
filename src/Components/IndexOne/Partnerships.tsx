@@ -11,6 +11,10 @@ const Partnerships = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleMafcClick = () => {
+    window.open('https://www.facebook.com/people/MAFC-San-Jose-Partido/61553669726982/', '_blank');
+  };
+
   return (
     <section className={`partnerships-section ${isVisible ? 'visible' : ''}`}>
       <div className="partnerships-inner">
@@ -25,7 +29,7 @@ const Partnerships = () => {
         </div>
 
         <div className="partners-grid">
-          <div className="partner-item">
+          <div className="partner-item" onClick={handleMafcClick}>
             <div className="partner-logo-container">
               <img
                 src="/assets/img/partners/mafc-logo.png"
