@@ -699,7 +699,7 @@ html.dark .faq-item,
     padding: 32px 24px;
     min-width: 0;
     max-width: 100%;
-    min-height: auto;
+    min-height: 650px;
     border: 2px solid rgba(109, 190, 69, 0.2);
   }
   
