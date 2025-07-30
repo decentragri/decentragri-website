@@ -37,6 +37,14 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
+            <div className="col-lg-2 col-md-3 col-sm-6">
+              <div className="footer-widget">
+                <h4 className="fw-title">Tokens</h4>
+                <ul className="fw-links">
+                  <li><a href="/tree-nfts">Tree NFTs</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

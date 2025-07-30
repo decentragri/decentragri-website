@@ -23,7 +23,7 @@ const IndexOne = () => {
         <Partnerships />
 
 
-        <FAQ />
+        {/* <FAQ /> */}
         <CallToAction 
           title="Ready to Get Started?"
           subtitle="Join our community of farmers and start transforming your agricultural practices today"

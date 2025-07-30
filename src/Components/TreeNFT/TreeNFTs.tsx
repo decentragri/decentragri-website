@@ -10,7 +10,7 @@ const TreeNFTs = () => {
       projection: "$320M by 2033",
       cagr: "7% CAGR",
       description: "High-value export commodity with growing global demand",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Starr-110330-4032-Canarium_ovatum-habit-Garden_of_Eden_Keanae-Maui_%2824454268623%29.jpg/500px-Starr-110330-4032-Canarium_ovatum-habit-Garden_of_Eden_Keanae-Maui_%2824454268623%29.jpg"
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Starr-110330-4038-Canarium_ovatum-fruit_and_leaves-Garden_of_Eden_Keanae-Maui_%2824454279393%29.jpg/1200px-Starr-110330-4038-Canarium_ovatum-fruit_and_leaves-Garden_of_Eden_Keanae-Maui_%2824454279393%29.jpg?20180822161138"
     },
     {
       name: "Cacao",
