@@ -4,6 +4,7 @@ import TokenizationSection from './TokenizationSection'
 import FieldCarousel from './FieldCarousel'
 import DecentragriFeatures from './DecentragriFeatures'
 import Partnerships from './Partnerships'
+import RoadmapSection from './RoadmapSection'
 import CallToAction from '../Common/CallToAction'
 import FAQ from '../Common/FAQ'
 import './IndexOne.css'
@@ -18,7 +19,9 @@ const IndexOne = () => {
         <TokenizationSection />
         <DecentragriFeatures />
         <FieldCarousel />
+        <RoadmapSection />
         <Partnerships />
+
 
         <FAQ />
         <CallToAction 

@@ -16,11 +16,18 @@ const teamMembers = [
 
   {
     name: 'Yehna Lee',
-    role: 'Chief Executive Officer',
+    role: 'Co-CEO,Philippines',
     image: '/assets/img/team/dahl_full.png',
     bio: 'Visionary leader with a passion for agricultural innovation and sustainable farming solutions.',
     twitter: 'https://x.com/alviedahl',
     linkedin: 'https://www.linkedin.com/in/yehna-lee-0b539b26a/'
+  },
+    {
+    name: 'Francis Jerry',
+    role: 'Co-CEO, Nigeria',
+    image: '/assets/img/team/jerry.jpg',
+    linkedin: 'https://www.linkedin.com/in/francis-jerry',
+    bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
   },
   {
     name: 'Khyle De Jesus-Santos',
@@ -31,7 +38,7 @@ const teamMembers = [
   },
   {
     name: 'Anthony Arriola',
-    role: 'Chief Technology Officer',
+    role: 'CTO, REGIONAL DIRECTOR - BICOL',
     image: '/assets/img/team/anthony_full.png',
     bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
     github: 'https://github.com/YirenNing24',
@@ -39,21 +46,11 @@ const teamMembers = [
   },
   {
     name: 'Carmela Dela Cruz',
-    role: 'Regional Director, Bulacan',
+    role: 'CPO, Regional Director - Bulacan',
     image: '/assets/img/team/mela.jpg',
     bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
     twitter: 'https://x.com/meladecentragri?t=c-Cm5SVVWl0NhpcrJQ_ldA&s=09'
-
-  },
-  {
-    name: 'Francis Jerry',
-    role: 'Regional Director, Nigeria',
-    image: '/assets/img/team/jerry.jpg',
-    linkedin: 'https://www.linkedin.com/in/francis-jerry',
-    bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
-  },
-
-
+  }
 ];
 
 // Core values data

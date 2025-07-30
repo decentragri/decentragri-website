@@ -10,7 +10,7 @@ const TreeNFTs = () => {
       projection: "$320M by 2033",
       cagr: "7% CAGR",
       description: "High-value export commodity with growing global demand",
-      image: "/assets/img/placeholder-tree-1.svg"
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Starr-110330-4032-Canarium_ovatum-habit-Garden_of_Eden_Keanae-Maui_%2824454268623%29.jpg/500px-Starr-110330-4032-Canarium_ovatum-habit-Garden_of_Eden_Keanae-Maui_%2824454268623%29.jpg"
     },
     {
       name: "Cacao",
@@ -18,7 +18,7 @@ const TreeNFTs = () => {
       projection: "$23.5B by 2030",
       cagr: "8% CAGR",
       description: "Premium crop with strong export potential",
-      image: "/assets/img/placeholder-tree-2.svg"
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Matadecacao.jpg/500px-Matadecacao.jpg"
     },
     {
       name: "Coffee",
@@ -26,7 +26,7 @@ const TreeNFTs = () => {
       projection: "$381B by 2034",
       cagr: "4.5% CAGR",
       description: "Global commodity with stable demand growth",
-      image: "/assets/img/placeholder-tree-3.svg"
+      image: "https://plus.unsplash.com/premium_photo-1666976503799-4ef00906ab2b?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ];
 

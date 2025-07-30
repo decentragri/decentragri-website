@@ -9,11 +9,9 @@ export default function TreeNFTPage() {
     <>
       <SideBar />
       <div className="main-content">
-        
+  
         <Header />
         <TreeNFTs />
-        
-
       </div>
       <Footer />
     </>

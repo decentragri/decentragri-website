@@ -45,7 +45,7 @@ const Contact = () => {
             </div>
             <div className="faq-item">
               <h3>Where is Decentragri based?</h3>
-              <p>We are headquartered in Camarines Sur, Bicol, Philippines, but our platform is accessible globally.</p>
+              <p>We are headquartered in Bicol, Philippines, and Benue State, Nigeria but our platform is accessible globally.</p>
             </div>
             <div className="faq-item">
               <h3>How soon will I get a response?</h3>

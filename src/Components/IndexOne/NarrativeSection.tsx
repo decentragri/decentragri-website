@@ -38,7 +38,7 @@ const NarrativeSection = () => (
           </div>
         </div>
         
-        <a href="/about" className="narrative-cta-button">
+        <a href="/assets/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="narrative-cta-button">
           <span>Explore Our Vision</span>
           <div className="narrative-button-glow"></div>
         </a>

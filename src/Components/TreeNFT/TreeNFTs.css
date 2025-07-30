@@ -213,7 +213,7 @@
 
 .tree-nfts-crop-image {
   position: relative;
-  height: 200px;
+  height: 280px;
   overflow: hidden;
 }
 
@@ -563,8 +563,18 @@
     grid-template-columns: 1fr;
   }
   
+  .tree-nfts-crop-image {
+    height: 240px;
+  }
+  
+  .tree-nfts-tokenization-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
   .tree-nfts-token-card {
     padding: 30px;
+    max-width: 100%;
   }
   
   .tree-nfts-market-stats {
@@ -590,8 +600,23 @@
     font-size: 2rem;
   }
   
+  .tree-nfts-crop-image {
+    height: 220px;
+  }
+  
+  .tree-nfts-tokenization-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
   .tree-nfts-token-card {
     padding: 24px;
+    max-width: 100%;
+  }
+  
+  .tree-nfts-metadata-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
   
   .tree-nfts-yield-example {
