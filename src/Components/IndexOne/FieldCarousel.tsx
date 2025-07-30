@@ -14,7 +14,7 @@ const FieldCarousel = () => {
       location: 'Bicol Region, Philippines',
       stats: {
         area: '150 hectares',
-        farmers: '45 farmers',
+        farmers: '450+ farmers',
         yield: '8.2 tons/ha'
       },
       tags: ['Organic', 'IoT Sensors', 'Climate Resilient']
@@ -27,7 +27,7 @@ const FieldCarousel = () => {
       location: 'Bulacan, Philippines',
       stats: {
         area: '85 hectares',
-        farmers: '28 farmers',
+        farmers: '500+ farmers',
         yield: '7.8 tons/ha'
       },
       tags: ['Smart Irrigation', 'AI Monitoring', 'Sustainable']

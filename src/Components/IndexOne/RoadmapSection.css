@@ -634,13 +634,19 @@
     font-size: 1.1rem;
   }
   
+  .roadmap-container {
+    padding: 0 20px;
+  }
+  
   .roadmap-line {
-    left: 40px;
+    display: none;
   }
   
   .roadmap-item {
     flex-direction: column !important;
-    margin-left: 80px;
+    margin-left: 0;
+    margin-bottom: 40px;
+    position: relative;
   }
   
   .roadmap-item:nth-child(even) .roadmap-content,
@@ -655,20 +661,38 @@
   }
   
   .roadmap-connector {
-    left: 40px;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
   }
   
   .roadmap-dot {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    position: relative;
   }
   
   .roadmap-icon {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   
   .roadmap-card {
-    padding: 24px;
+    padding: 24px 20px;
+    margin-top: 0;
+  }
+  
+  .roadmap-card-title {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  
+  .roadmap-phase {
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
   
   .roadmap-cta-card {
@@ -678,6 +702,7 @@
   .roadmap-cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 16px;
   }
   
   .roadmap-primary-btn,
@@ -691,17 +716,86 @@
 @media (max-width: 480px) {
   .roadmap-title {
     font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  
+  .roadmap-description {
+    font-size: 1rem;
+    margin-bottom: 40px;
   }
   
   .roadmap-container {
     padding: 0 16px;
   }
   
+  .roadmap-line {
+    display: none;
+  }
+  
+  .roadmap-item {
+    margin-left: 0;
+    margin-bottom: 30px;
+  }
+  
+  .roadmap-connector {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .roadmap-dot {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  
+  .roadmap-icon {
+    font-size: 1rem;
+  }
+  
+  .roadmap-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  
+  .roadmap-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .roadmap-phase {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+  
+  .roadmap-achievement {
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+  
+  .roadmap-cta-card {
+    padding: 24px 16px;
+  }
+  
   .roadmap-cta-card h3 {
     font-size: 1.6rem;
   }
   
-  .roadmap-card-title {
-    font-size: 1.3rem;
+  .roadmap-cta-description {
+    font-size: 0.95rem;
+  }
+  
+  .roadmap-cta-buttons {
+    gap: 12px;
+  }
+  
+  .roadmap-primary-btn,
+  .roadmap-secondary-btn {
+    padding: 14px 24px;
+    font-size: 0.95rem;
   }
 }

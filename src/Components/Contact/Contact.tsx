@@ -28,7 +28,7 @@ const Contact = () => {
               <iframe
                 title="Decentragri Location"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=123.45710%2C13.68728%2C123.47710%2C13.70728&layer=mapnik"
-                style={{ border: 0, width: '100%', height: '180px', borderRadius: '10px' }}
+                style={{ border: 0, width: '100%', height: '200px', borderRadius: '20px', minHeight: '200px' }}
                 allowFullScreen
                 loading="lazy"
               ></iframe>

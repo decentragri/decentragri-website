@@ -163,12 +163,14 @@
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform: translateX(100px);
+  visibility: hidden;
 }
 
 .field-slide.active {
   opacity: 1;
   transform: translateX(0);
   z-index: 2;
+  visibility: visible;
 }
 
 .field-slide-image {
@@ -632,47 +634,88 @@
   
   .field-carousel {
     height: auto;
-    flex-direction: column;
+    min-height: 500px;
+    border-radius: 16px;
   }
   
   .field-slide {
     flex-direction: column;
     position: relative;
+    height: auto;
+    min-height: 500px;
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .field-slide.active {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
   }
   
   .field-slide-image {
-    height: 300px;
+    height: 250px;
     flex: none;
+    width: 100%;
+  }
+  
+  .field-slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .field-slide-content {
     flex: none;
-    padding: 30px 24px;
+    padding: 24px 20px;
+    min-width: auto;
+    width: 100%;
   }
   
   .field-slide-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .field-slide-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  
+  .field-slide-description {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
   }
   
   .field-stats {
     grid-template-columns: 1fr;
     gap: 12px;
+    margin-top: 16px;
   }
   
-  .field-slide-title {
-    font-size: 1.8rem;
-  }
-  
-  .field-slide-description {
-    font-size: 1rem;
+  .field-stat {
+    padding: 16px 14px;
   }
   
   .field-carousel-control {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .field-carousel-control.prev {
+    left: 15px;
+  }
+  
+  .field-carousel-control.next {
+    right: 15px;
+  }
+  
+  .field-carousel-indicators {
+    bottom: -40px;
   }
   
   .field-cta-card {
@@ -682,6 +725,7 @@
   .field-cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 16px;
   }
   
   .field-primary-btn,
@@ -695,22 +739,143 @@
 @media (max-width: 480px) {
   .field-section-title {
     font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  
+  .field-section-description {
+    font-size: 1rem;
+    margin-bottom: 40px;
   }
   
   .field-carousel-container {
     padding: 0 16px;
   }
   
+  .field-carousel {
+    height: auto;
+    min-height: 450px;
+    border-radius: 12px;
+  }
+  
+  .field-slide {
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    min-height: 450px;
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .field-slide.active {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .field-slide-image {
+    height: 200px;
+    flex: none;
+    width: 100%;
+  }
+  
+  .field-slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .field-slide-content {
+    flex: none;
+    padding: 20px 16px;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .field-slide-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .field-slide-title {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+  
+  .field-slide-description {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+  
+  .field-stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  
+  .field-stat {
+    padding: 12px 10px;
+  }
+  
+  .field-stat-value {
+    font-size: 1.4rem;
+  }
+  
+  .field-stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .field-carousel-control {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .field-carousel-control.prev {
+    left: 10px;
+    display: flex;
+  }
+  
+  .field-carousel-control.next {
+    right: 10px;
+    display: flex;
+  }
+  
+  .field-carousel-indicators {
+    bottom: -35px;
+  }
+  
+  .field-carousel-indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .field-cta-card {
+    padding: 24px 16px;
+  }
+  
   .field-cta-card h3 {
     font-size: 1.6rem;
   }
   
-  .field-slide-title {
-    font-size: 1.5rem;
+  .field-cta-description {
+    font-size: 0.95rem;
   }
   
-  .field-carousel-control.prev,
-  .field-carousel-control.next {
-    display: none;
+  .field-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .field-primary-btn,
+  .field-secondary-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    text-align: center;
   }
 }
