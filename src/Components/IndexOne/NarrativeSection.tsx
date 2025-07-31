@@ -13,8 +13,8 @@ const NarrativeSection = () => (
     <div className="narrative-content">
       <div className="narrative-text-panel">
         <div className="narrative-badge">
-          <FaRocket />
-          THE FUTURE IS HERE
+
+          BUILDING THE FUTURE OF AGRICULTURE
         </div>
         <h2 className="narrative-title">
           The future of agriculture is <span className="narrative-gradient-text">real-time, AI-driven, and on-chain.</span>
