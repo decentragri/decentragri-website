@@ -42,7 +42,6 @@ const teamMembers = [
     image: '/assets/img/team/anthony_full.png',
     bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
     github: 'https://github.com/YirenNing24',
-    twitter: 'https://x.com/ryujiminssi'
   },
   {
     name: 'Carmela Dela Cruz',
