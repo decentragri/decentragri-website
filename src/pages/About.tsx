@@ -18,7 +18,7 @@ const teamMembers = [
     role: 'CEO',
     image: '/assets/img/team/anthony_full.png',
     bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
-    github: 'https://github.com/YirenNing24',
+    linkedin: "https://www.linkedin.com/in/paul-anthony-arriola-a0436321b/",
   },
   {
     name: 'Francis Jerry',
