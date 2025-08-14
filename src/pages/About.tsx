@@ -15,7 +15,7 @@ import CallToAction from '../Components/Common/CallToAction';
 const teamMembers = [
   {
     name: 'Paul Anthony Arriola',
-    role: 'CEO, REGIONAL DIRECTOR - BICOL',
+    role: 'CEO',
     image: '/assets/img/team/anthony_full.png',
     bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
     github: 'https://github.com/YirenNing24',
