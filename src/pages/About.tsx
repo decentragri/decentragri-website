@@ -13,21 +13,27 @@ import CallToAction from '../Components/Common/CallToAction';
 
 // Team member data
 const teamMembers = [
-
   {
-    name: 'Yehna Lee',
-    role: 'Co-CEO,Philippines',
-    image: '/assets/img/team/dahl_full.png',
-    bio: 'Visionary leader with a passion for agricultural innovation and sustainable farming solutions.',
-    twitter: 'https://x.com/alviedahl',
-    linkedin: 'https://www.linkedin.com/in/yehna-lee-0b539b26a/'
+    name: 'Paul Anthony Arriola',
+    role: 'CEO, REGIONAL DIRECTOR - BICOL',
+    image: '/assets/img/team/anthony_full.png',
+    bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
+    github: 'https://github.com/YirenNing24',
   },
-    {
+  {
     name: 'Francis Jerry',
     role: 'Co-CEO, Nigeria',
     image: '/assets/img/team/jerry.jpg',
     linkedin: 'https://www.linkedin.com/in/francis-jerry',
     bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
+  },
+  {
+    name: 'Yehna Lee',
+    role: 'Chief Strategy Officer',
+    image: '/assets/img/team/dahl_full.png',
+    bio: 'Visionary leader with a passion for agricultural innovation and sustainable farming solutions.',
+    twitter: 'https://x.com/alviedahl',
+    linkedin: 'https://www.linkedin.com/in/yehna-lee-0b539b26a/'
   },
   {
     name: 'Khyle De Jesus-Santos',
@@ -36,16 +42,10 @@ const teamMembers = [
     bio: 'Expert in sustainable farming practices and crop optimization techniques.',
     linkedin: 'https://www.linkedin.com/in/khyle-de-jesus-10444a197/'
   },
-  {
-    name: 'Anthony Arriola',
-    role: 'CTO, REGIONAL DIRECTOR - BICOL',
-    image: '/assets/img/team/anthony_full.png',
-    bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
-    github: 'https://github.com/YirenNing24',
-  },
+
   {
     name: 'Carmela Dela Cruz',
-    role: 'CPO, Regional Director - Bulacan',
+    role: 'Procurement Officer, Regional Director - Bulacan',
     image: '/assets/img/team/mela.jpg',
     bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
     twitter: 'https://x.com/meladecentragri?t=c-Cm5SVVWl0NhpcrJQ_ldA&s=09'
