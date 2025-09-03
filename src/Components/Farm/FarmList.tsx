@@ -63,7 +63,7 @@ const mockFarms: FarmPlotDirectListing[] = [
     asset: {
       name: 'Green Valley Farm Plot #1001',
       description: 'A premium agricultural plot with fertile soil perfect for organic farming. Located in a prime area with excellent water access and transportation links.',
-      image: '/assets/img/banner/banner-bg.jpg',
+      image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop&crop=center',
       attributes: [{
         id: 'farm_001',
         price: '100.0 USDC',
@@ -71,7 +71,7 @@ const mockFarms: FarmPlotDirectListing[] = [
         description: 'Premium organic farming plot with excellent soil quality',
         cropType: 'Corn',
         owner: '0x789abcdef123456789abcdef123456789abcdef12',
-        image: '/assets/img/banner/banner-bg.jpg',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop&crop=center',
         location: 'Bicol Region, Philippines',
         coordinates: { lat: 13.4176, lng: 123.2833 },
         createdAt: '2024-09-01T10:00:00Z'
@@ -102,7 +102,7 @@ const mockFarms: FarmPlotDirectListing[] = [
     asset: {
       name: 'Sunrise Agricultural Estate #1002',
       description: 'Spacious rice farming estate with modern irrigation systems and sustainable farming practices.',
-      image: '/assets/img/banner/banner-bg.jpg',
+      image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop&crop=center',
       attributes: [{
         id: 'farm_002',
         price: '75.0 USDC',
@@ -110,7 +110,7 @@ const mockFarms: FarmPlotDirectListing[] = [
         description: 'Modern rice farming with advanced irrigation',
         cropType: 'Rice',
         owner: '0x987fedcba987654321fedcba987654321fedcba98',
-        image: '/assets/img/banner/banner-bg.jpg',
+        image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop&crop=center',
         location: 'Laguna Province, Philippines',
         coordinates: { lat: 14.2691, lng: 121.1607 },
         createdAt: '2024-08-28T14:30:00Z'
@@ -141,7 +141,7 @@ const mockFarms: FarmPlotDirectListing[] = [
     asset: {
       name: 'Mountain View Coffee Plantation #1003',
       description: 'Premium coffee growing land at optimal altitude with perfect climate conditions for arabica beans.',
-      image: '/assets/img/banner/banner-bg.jpg',
+      image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=600&fit=crop&crop=center',
       attributes: [{
         id: 'farm_003',
         price: '150.0 USDC',
@@ -149,7 +149,7 @@ const mockFarms: FarmPlotDirectListing[] = [
         description: 'High-altitude coffee plantation with arabica beans',
         cropType: 'Coffee',
         owner: '0xabc123def456ghi789jkl012mno345pqr678stu90',
-        image: '/assets/img/banner/banner-bg.jpg',
+        image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=600&fit=crop&crop=center',
         location: 'Benguet Province, Philippines',
         coordinates: { lat: 16.4023, lng: 120.5979 },
         createdAt: '2024-09-02T09:15:00Z'
@@ -180,7 +180,7 @@ const mockFarms: FarmPlotDirectListing[] = [
     asset: {
       name: 'Coastal Organic Vegetable Farm #1004',
       description: 'Certified organic vegetable farm with diverse crop rotation and sustainable practices near the coast.',
-      image: '/assets/img/banner/banner-bg.jpg',
+      image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center',
       attributes: [{
         id: 'farm_004',
         price: '120.0 USDC',
@@ -188,7 +188,7 @@ const mockFarms: FarmPlotDirectListing[] = [
         description: 'Certified organic with diverse vegetables',
         cropType: 'Vegetables',
         owner: '0xdef456abc789ghi012jkl345mno678pqr901stu23',
-        image: '/assets/img/banner/banner-bg.jpg',
+        image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center',
         location: 'Bataan Province, Philippines',
         coordinates: { lat: 14.6760, lng: 120.4437 },
         createdAt: '2024-08-30T16:45:00Z'
@@ -301,11 +301,15 @@ const FarmList: React.FC = () => {
                 const farmAttributes = farm.asset.attributes?.[0];
                 return (
                   <div className="farm-card" key={farm.id}>
-                    <img
-                      src={farm.asset.image || farmAttributes?.image || '/assets/img/banner/banner-bg.jpg'}
-                      alt={farm.asset.name || farmAttributes?.farmName}
-                      className="farm-image"
-                    />
+                      <img
+                        src={
+                          farm.asset.image && farm.asset.image !== '' ? farm.asset.image :
+                          farmAttributes?.image && farmAttributes?.image !== '' ? farmAttributes.image :
+                          '/assets/img/placeholder/farm-placeholder.jpg'
+                        }
+                        alt={farm.asset.name || farmAttributes?.farmName}
+                        className="farm-image"
+                      />
                     <div className="farm-card-content">
                       <h3>{farm.asset.name || farmAttributes?.farmName || 'Farm Plot'}</h3>
                       
