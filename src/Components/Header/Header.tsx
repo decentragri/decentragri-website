@@ -88,6 +88,7 @@ const Header = () => {
                   <div className="navbar-wrap push-menu main-menu d-none d-lg-flex">
                     <ul className="navigation">
                       <li><Link to="/">Home</Link></li>
+                      <li><Link to="/farms">Farms</Link></li>
                       <li><a href="/assets/whitepaper/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
                       <li><Link to="/about">About</Link></li>
                       <li><Link to="/contact">Contact</Link></li>
@@ -145,6 +146,12 @@ const Header = () => {
                           <Link to="/" onClick={closeMobileMenu} className="nav-link">
                             <i className="fas fa-home" />
                             <span>Home</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/farms" onClick={closeMobileMenu} className="nav-link">
+                            <i className="fas fa-seedling" />
+                            <span>Farms</span>
                           </Link>
                         </li>
                         <li>

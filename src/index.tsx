@@ -10,6 +10,7 @@ import TreeNFTs from "./Components/TreeNFT/TreeNFTs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFoundPage from './pages/NotFoundPage';
+import FarmListPage from './pages/FarmListPage';
 
 import "./assets/css/privacy-policy.css";
 import "./assets/css/terms-of-service.css";
@@ -52,6 +53,7 @@ export function App() {
 							<Route path="/" component={Home} />
 							<Route path="/about" component={About} />
 							<Route path="/contact" component={ContactPage} />
+							<Route path="/farms" component={FarmListPage} />
 							<Route path="/tree-nfts" component={TreeNFTPage} />
 							{/* <Route path="/blog" component={Blog} />
 							<Route path="/blog-details" component={BlogDetails} /> */}

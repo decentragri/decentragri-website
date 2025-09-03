@@ -13,6 +13,11 @@ export default defineConfig({
 			'src/**/*.css'
 		])
 	],
+	server: {
+		hmr: {
+			port: 5173,
+		},
+	},
 	resolve: {
 		alias: {
 			'@server': path.resolve(__dirname, 'server/src'),
