@@ -145,6 +145,16 @@
   box-shadow: 0 8px 24px rgba(168, 255, 4, 0.3);
 }
 
+/* Light mode - ensure icons are visible with dark color on light gradient */
+.tokenization-card-icon {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dark mode - white icons work well on the gradient */
+.dark-mode .tokenization-card-icon {
+  color: #fff;
+}
+
 .tokenization-card-content {
   padding: 24px 32px 32px;
 }
