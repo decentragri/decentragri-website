@@ -417,33 +417,6 @@
   color: var(--text-light, #ffffff);
 }
 
-.roadmap-period {
-  font-size: 1rem;
-  color: var(--primary-color, #6DBE45);
-  font-weight: 600;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
-  text-align: left;
-}
-
-.dark-mode .roadmap-card-title {
-  color: var(--text-light, #ffffff);
-}
-
-.roadmap-period {
-  font-size: 1rem;
-  color: var(--primary-color, #6DBE45);
-  font-weight: 600;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.dark-mode .roadmap-period {
-  color: var(--lime-color, #A8FF04);
-}
-
 .roadmap-achievements {
   display: flex;
   flex-direction: column;

@@ -7,7 +7,6 @@ const RoadmapSection = () => {
     {
       phase: "Phase 1",
       title: "Foundation & MVP",
-      period: "Q3 2025",
       status: "current",
       icon: <FaRocket />,
       achievements: [
@@ -22,7 +21,6 @@ const RoadmapSection = () => {
     {
       phase: "Phase 2",
       title: "Pilot Expansion",
-      period: "Q4 2025",
       status: "upcoming",
       icon: <FaLeaf />,
       achievements: [
@@ -36,7 +34,6 @@ const RoadmapSection = () => {
     {
       phase: "Phase 3",
       title: "Smart Farming Platform",
-      period: "Q1-Q2 2026",
       status: "upcoming",
       icon: <FaNetworkWired />,
       achievements: [
@@ -49,7 +46,6 @@ const RoadmapSection = () => {
     {
       phase: "Phase 4",
       title: "Global Expansion",
-      period: "Q3-Q4 2026",
       status: "upcoming",
       icon: <FaGlobe />,
       achievements: [
@@ -63,7 +59,6 @@ const RoadmapSection = () => {
     {
       phase: "Phase 5",
       title: "Climate Resilience",
-      period: "Q4-2027",
       status: "future",
       icon: <FaUsers />,
       achievements: [
@@ -127,7 +122,6 @@ const RoadmapSection = () => {
                   </div>
                   
                   <h3 className="roadmap-card-title">{item.title}</h3>
-                  <p className="roadmap-period">{item.period}</p>
                   
                   <div className="roadmap-achievements">
                     {item.achievements.map((achievement, achievementIndex) => (

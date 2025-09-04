@@ -79,14 +79,18 @@
   font-weight: 700;
   color: var(--text-dark, #121212);
   margin: 0;
-  background: linear-gradient(135deg, var(--primary-color, #6DBE45) 0%, #A8FF04 100%);
+  background: linear-gradient(135deg, #7ED321 0%, #A8FF04 30%, #6DBE45 70%, #A8FF04 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
 .dark-mode .farm-modal-title {
-  color: var(--text-light, #ffffff);
+  background: linear-gradient(135deg, #A8FF04 0%, #7ED321 30%, #6DBE45 70%, #A8FF04 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .farm-modal-close {

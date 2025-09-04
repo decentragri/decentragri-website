@@ -1,24 +1,39 @@
-export interface FarmCoordinates {
-  lat: number;
-  lng: number;
-}
+import { FarmList as FarmData, FarmCoordinates } from '../types/farm.types';
+import { API_CONFIG, getApiHeaders, handleApiResponse } from '../config/api';
 
-// Updated interface to match the Go struct
-export interface FarmData {
-  owner: string;
-  farmName: string;
-  id: string;
-  cropType: string;
-  description: string;
-  image: string;
-  coordinates: FarmCoordinates;
-  updatedAt: string;  // ISO string format
-  createdAt: string;  // ISO string format
-  formattedUpdatedAt: string;
-  formattedCreatedAt: string;
-  imageBytes: number[]; // byte array represented as number array
-  location: string;
-}
+// API Configuration
+const API_BASE_URL = API_CONFIG.BASE_URL;
+
+// API Service to get farm list from backend
+export const fetchFarmListFromAPI = async (): Promise<FarmData[]> => {
+  try {
+    const headers = getApiHeaders(true);
+    
+    // Check if we have an auth token
+    const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+    if (!token) {
+      throw new Error('Authentication token not found. Please log in.');
+    }
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), API_CONFIG.TIMEOUT);
+
+    const response = await fetch(`${API_BASE_URL}${API_CONFIG.ENDPOINTS.FARM_LIST}`, {
+      method: 'GET',
+      headers,
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+    return await handleApiResponse<FarmData[]>(response);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error('Error fetching farm list from API:', error.message);
+      throw error;
+    }
+    throw new Error('Unknown error occurred while fetching farm list');
+  }
+};
 
 // Mock data for development - updated to match Go struct
 const mockFarms: FarmData[] = [
@@ -37,7 +52,8 @@ const mockFarms: FarmData[] = [
     createdAt: '2024-08-15T08:00:00Z',
     formattedUpdatedAt: 'September 4, 2024 at 10:30 AM',
     formattedCreatedAt: 'August 15, 2024 at 8:00 AM',
-    imageBytes: [],
+    // Simple 1x1 red pixel JPEG for testing (minimal valid JPEG)
+    imageBytes: [255, 216, 255, 224, 0, 16, 74, 70, 73, 70, 0, 1, 1, 1, 0, 72, 0, 72, 0, 0, 255, 219, 0, 67, 0, 8, 6, 6, 7, 6, 5, 8, 7, 7, 7, 9, 9, 8, 10, 12, 20, 13, 12, 11, 11, 12, 25, 18, 19, 15, 20, 29, 26, 31, 30, 29, 26, 28, 28, 32, 36, 46, 39, 32, 34, 44, 35, 28, 28, 40, 55, 41, 44, 48, 49, 52, 52, 52, 31, 39, 57, 61, 56, 50, 60, 46, 51, 52, 50, 255, 219, 0, 67, 1, 9, 9, 9, 12, 11, 12, 24, 13, 13, 24, 50, 33, 28, 33, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 255, 192, 0, 17, 8, 0, 1, 0, 1, 1, 1, 17, 0, 2, 17, 1, 3, 17, 1, 255, 196, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 196, 0, 20, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 196, 0, 20, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 196, 0, 20, 17, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 218, 0, 12, 3, 1, 0, 2, 17, 3, 17, 0, 63, 0, 178, 192, 7, 255, 217],
     location: 'Central Valley, CA'
   },
   {
@@ -88,11 +104,49 @@ export const getFarmById = async (id: string): Promise<FarmData | null> => {
   });
 };
 
-export const getFarmList = async (): Promise<FarmData[]> => {
-  // Simulate API call
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve([...mockFarms]);
-    }, 500);
-  });
+export const getFarmList = async (useMockData = false): Promise<FarmData[]> => {
+  if (useMockData) {
+    console.log('Using mock farm data');
+    // Simulate API call delay for development
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const farms = [...mockFarms];
+        console.log('Mock farms data:', farms.map(f => ({
+          name: f.farmName,
+          id: f.id,
+          hasImageBytes: !!f.imageBytes,
+          imageBytesLength: f.imageBytes?.length || 0
+        })));
+        resolve(farms);
+      }, 500);
+    });
+  }
+
+  try {
+    console.log('Attempting to fetch farm data from API...');
+    const farms = await fetchFarmListFromAPI();
+    console.log('Successfully fetched farm data from API:', farms.length, 'farms');
+    console.log('API farms data:', farms.map(f => ({
+      name: f.farmName,
+      id: f.id,
+      hasImageBytes: !!f.imageBytes,
+      imageBytesLength: f.imageBytes?.length || 0
+    })));
+    return farms;
+  } catch (error) {
+    console.warn('API call failed, falling back to mock data:', error);
+    // Fallback to mock data with simulated delay
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const farms = [...mockFarms];
+        console.log('Fallback farms data:', farms.map(f => ({
+          name: f.farmName,
+          id: f.id,
+          hasImageBytes: !!f.imageBytes,
+          imageBytesLength: f.imageBytes?.length || 0
+        })));
+        resolve(farms);
+      }, 500);
+    });
+  }
 };
