@@ -6,17 +6,21 @@ export interface FarmCoordinates {
   lng: number;
 }
 
-export interface FarmPlotAttributes {
-  id: string;
-  price: string;
-  farmName: string;
-  description: string;
-  cropType: string;
+// Updated interface to match the Go struct
+export interface FarmList {
   owner: string;
+  farmName: string;
+  id: string;
+  cropType: string;
+  description: string;
   image: string;
-  location: string;
   coordinates: FarmCoordinates;
-  createdAt: string;
+  updatedAt: string;  // ISO string format
+  createdAt: string;  // ISO string format
+  formattedUpdatedAt: string;
+  formattedCreatedAt: string;
+  imageBytes: number[]; // byte array represented as number array
+  location: string;
 }
 
 export interface CurrencyValuePerToken {
@@ -50,7 +54,7 @@ export interface FarmPlotMetadata {
   external_url?: string;
   background_color?: string;
   properties?: Record<string, any>;
-  attributes?: FarmPlotAttributes[];
+  attributes?: FarmList[];  // Updated to use FarmList instead of FarmPlotAttributes
 }
 
 export interface FarmPlotDirectListing extends DirectListing {
@@ -214,11 +218,19 @@ const FarmModal: React.FC<FarmModalProps> = ({ isOpen, onClose, farm }) => {
                       {farmAttributes.owner.slice(0, 6)}...{farmAttributes.owner.slice(-4)}
                     </span>
                   </div>
-                  {farmAttributes.createdAt && (
+                  {farmAttributes.formattedCreatedAt && (
                     <div className="farm-detail-item">
                       <span className="farm-detail-label">Created:</span>
                       <span className="farm-detail-value">
-                        {new Date(farmAttributes.createdAt).toLocaleDateString()}
+                        {farmAttributes.formattedCreatedAt}
+                      </span>
+                    </div>
+                  )}
+                  {farmAttributes.formattedUpdatedAt && (
+                    <div className="farm-detail-item">
+                      <span className="farm-detail-label">Last Updated:</span>
+                      <span className="farm-detail-value">
+                        {farmAttributes.formattedUpdatedAt}
                       </span>
                     </div>
                   )}

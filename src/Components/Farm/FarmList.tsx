@@ -7,17 +7,21 @@ export interface FarmCoordinates {
   lng: number;
 }
 
-export interface FarmPlotAttributes {
-  id: string;
-  price: string;
-  farmName: string;
-  description: string;
-  cropType: string;
+// Updated interface to match the Go struct
+export interface FarmList {
   owner: string;
+  farmName: string;
+  id: string;
+  cropType: string;
+  description: string;
   image: string;
-  location: string;
   coordinates: FarmCoordinates;
-  createdAt: string;
+  updatedAt: string;  // ISO string format
+  createdAt: string;  // ISO string format
+  formattedUpdatedAt: string;
+  formattedCreatedAt: string;
+  imageBytes: number[]; // byte array represented as number array
+  location: string;
 }
 
 export interface CurrencyValuePerToken {
@@ -35,10 +39,10 @@ export interface FarmPlotMetadata {
   external_url?: string;
   background_color?: string;
   properties?: Record<string, any>;
-  attributes?: FarmPlotAttributes[];
+  attributes?: FarmList[];
 }
 
-// Mock data based on your Go struct
+// Mock data based on your updated Go struct
 const mockFarms: FarmPlotDirectListing[] = [
   {
     id: '1',
@@ -65,16 +69,19 @@ const mockFarms: FarmPlotDirectListing[] = [
       description: 'A premium agricultural plot with fertile soil perfect for organic farming. Located in a prime area with excellent water access and transportation links.',
       image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop&crop=center',
       attributes: [{
-        id: 'farm_001',
-        price: '100.0 USDC',
-        farmName: 'Green Valley Farm',
-        description: 'Premium organic farming plot with excellent soil quality',
-        cropType: 'Corn',
         owner: '0x789abcdef123456789abcdef123456789abcdef12',
+        farmName: 'Green Valley Farm',
+        id: 'farm_001',
+        cropType: 'Corn',
+        description: 'Premium organic farming plot with excellent soil quality',
         image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop&crop=center',
-        location: 'Bicol Region, Philippines',
         coordinates: { lat: 13.4176, lng: 123.2833 },
-        createdAt: '2024-09-01T10:00:00Z'
+        updatedAt: '2024-09-03T15:30:00Z',
+        createdAt: '2024-09-01T10:00:00Z',
+        formattedUpdatedAt: 'September 3, 2024 at 3:30 PM',
+        formattedCreatedAt: 'September 1, 2024 at 10:00 AM',
+        imageBytes: [],
+        location: 'Bicol Region, Philippines'
       }]
     },
     imageBytes: []
@@ -104,16 +111,19 @@ const mockFarms: FarmPlotDirectListing[] = [
       description: 'Spacious rice farming estate with modern irrigation systems and sustainable farming practices.',
       image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop&crop=center',
       attributes: [{
-        id: 'farm_002',
-        price: '75.0 USDC',
-        farmName: 'Sunrise Agricultural Estate',
-        description: 'Modern rice farming with advanced irrigation',
-        cropType: 'Rice',
         owner: '0x987fedcba987654321fedcba987654321fedcba98',
+        farmName: 'Sunrise Agricultural Estate',
+        id: 'farm_002',
+        cropType: 'Rice',
+        description: 'Modern rice farming with advanced irrigation',
         image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop&crop=center',
-        location: 'Laguna Province, Philippines',
         coordinates: { lat: 14.2691, lng: 121.1607 },
-        createdAt: '2024-08-28T14:30:00Z'
+        updatedAt: '2024-09-02T16:45:00Z',
+        createdAt: '2024-08-28T14:30:00Z',
+        formattedUpdatedAt: 'September 2, 2024 at 4:45 PM',
+        formattedCreatedAt: 'August 28, 2024 at 2:30 PM',
+        imageBytes: [],
+        location: 'Laguna Province, Philippines'
       }]
     },
     imageBytes: []
@@ -143,16 +153,19 @@ const mockFarms: FarmPlotDirectListing[] = [
       description: 'Premium coffee growing land at optimal altitude with perfect climate conditions for arabica beans.',
       image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=600&fit=crop&crop=center',
       attributes: [{
-        id: 'farm_003',
-        price: '150.0 USDC',
-        farmName: 'Mountain View Plantation',
-        description: 'High-altitude coffee plantation with arabica beans',
-        cropType: 'Coffee',
         owner: '0xabc123def456ghi789jkl012mno345pqr678stu90',
+        farmName: 'Mountain View Plantation',
+        id: 'farm_003',
+        cropType: 'Coffee',
+        description: 'High-altitude coffee plantation with arabica beans',
         image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=600&fit=crop&crop=center',
-        location: 'Benguet Province, Philippines',
         coordinates: { lat: 16.4023, lng: 120.5979 },
-        createdAt: '2024-09-02T09:15:00Z'
+        updatedAt: '2024-09-04T08:20:00Z',
+        createdAt: '2024-09-02T09:15:00Z',
+        formattedUpdatedAt: 'September 4, 2024 at 8:20 AM',
+        formattedCreatedAt: 'September 2, 2024 at 9:15 AM',
+        imageBytes: [],
+        location: 'Benguet Province, Philippines'
       }]
     },
     imageBytes: []
@@ -182,16 +195,19 @@ const mockFarms: FarmPlotDirectListing[] = [
       description: 'Certified organic vegetable farm with diverse crop rotation and sustainable practices near the coast.',
       image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center',
       attributes: [{
-        id: 'farm_004',
-        price: '120.0 USDC',
-        farmName: 'Coastal Organic Farm',
-        description: 'Certified organic with diverse vegetables',
-        cropType: 'Vegetables',
         owner: '0xdef456abc789ghi012jkl345mno678pqr901stu23',
+        farmName: 'Coastal Organic Farm',
+        id: 'farm_004',
+        cropType: 'Vegetables',
+        description: 'Certified organic with diverse vegetables',
         image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center',
-        location: 'Bataan Province, Philippines',
         coordinates: { lat: 14.6760, lng: 120.4437 },
-        createdAt: '2024-08-30T16:45:00Z'
+        updatedAt: '2024-09-03T12:30:00Z',
+        createdAt: '2024-08-30T16:45:00Z',
+        formattedUpdatedAt: 'September 3, 2024 at 12:30 PM',
+        formattedCreatedAt: 'August 30, 2024 at 4:45 PM',
+        imageBytes: [],
+        location: 'Bataan Province, Philippines'
       }]
     },
     imageBytes: []
