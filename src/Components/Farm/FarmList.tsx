@@ -110,12 +110,20 @@ const FarmList: React.FC = () => {
                   firstFewBytes: farm.imageBytes?.slice(0, 10) || 'none'
                 });
 
+                const imageData = getFarmImageSrc(farm.imageBytes, farm.image);
+
                 return (
                   <div className="farm-card" key={farm.id}>
                     <img
-                      src={getFarmImageSrc(farm.imageBytes, farm.image)}
+                      src={imageData.src}
                       alt={farm.farmName}
-                      className="farm-image"
+                      className={`farm-image ${imageData.isLogo ? 'farm-image-logo' : ''}`}
+                      style={imageData.isLogo ? {
+                        opacity: 0.3,
+                        filter: 'grayscale(100%) brightness(0.5)',
+                        objectFit: 'contain',
+                        padding: '20px'
+                      } : {}}
                     />
                     <div className="farm-card-content">
                     <h3>{farm.farmName}</h3>

@@ -28,9 +28,14 @@ const FarmModal: React.FC<FarmModalProps> = ({ isOpen, onClose, farm }) => {
 
   const handleViewOnMap = () => {
     const { lat, lng } = farm.coordinates;
-    const farmLabel = encodeURIComponent(farm.farmName);
-    // Using Google Maps search with coordinates and farm name
-    const googleMapsUrl = `https://www.google.com/maps/search/${farmLabel}/@${lat},${lng},15z/data=!3m1!4b1`;
+    
+    // Using the most reliable Google Maps URL format that always works
+    // This format directly opens the coordinates in Google Maps with a pin
+    const googleMapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
+    
+    console.log('Opening map for farm:', farm.farmName, 'at coordinates:', lat, lng);
+    console.log('Map URL:', googleMapsUrl);
+    
     window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
   };
 
@@ -58,11 +63,22 @@ const FarmModal: React.FC<FarmModalProps> = ({ isOpen, onClose, farm }) => {
         <div className="farm-modal-content">
           <div className="farm-modal-body">
             <div className="farm-modal-image-section">
-              <img
-                src={getFarmImageSrc(farm.imageBytes, farm.image)}
-                alt={farm.farmName}
-                className="farm-modal-image"
-              />
+              {(() => {
+                const imageData = getFarmImageSrc(farm.imageBytes, farm.image);
+                return (
+                  <img
+                    src={imageData.src}
+                    alt={farm.farmName}
+                    className={`farm-modal-image ${imageData.isLogo ? 'farm-modal-image-logo' : ''}`}
+                    style={imageData.isLogo ? {
+                      opacity: 0.3,
+                      filter: 'grayscale(100%) brightness(0.5)',
+                      objectFit: 'contain',
+                      padding: '40px'
+                    } : {}}
+                  />
+                );
+              })()}
             </div>
 
             <div className="farm-modal-details">

@@ -5,7 +5,7 @@
 /**
  * Converts imageBytes array to a base64 data URL for rendering
  * @param imageBytes - Array of numbers OR base64 string representing the packed byte array from server
- * @returns Base64 data URL string or placeholder image path
+ * @returns Base64 data URL string or DecentrAgri logo path as fallback
  */
 export const convertImageBytesToDataUrl = (imageBytes: number[] | string): string => {
   console.log('convertImageBytesToDataUrl called with:', {
@@ -18,8 +18,8 @@ export const convertImageBytesToDataUrl = (imageBytes: number[] | string): strin
   });
 
   if (!imageBytes || (Array.isArray(imageBytes) && imageBytes.length === 0) || (typeof imageBytes === 'string' && imageBytes.length === 0)) {
-    console.log('No imageBytes available, using placeholder');
-    return '/assets/img/placeholder/farm-placeholder.jpg';
+    console.log('No imageBytes available, using DecentrAgri logo');
+    return '/assets/img/logo/decentra_logo2.png';
   }
 
   try {
@@ -61,7 +61,7 @@ export const convertImageBytesToDataUrl = (imageBytes: number[] | string): strin
     return dataUrl;
   } catch (error) {
     console.error('Error converting imageBytes to base64:', error);
-    return '/assets/img/placeholder/farm-placeholder.jpg';
+    return '/assets/img/logo/decentra_logo2.png';
   }
 };
 
@@ -69,9 +69,9 @@ export const convertImageBytesToDataUrl = (imageBytes: number[] | string): strin
  * Gets the appropriate image source for a farm, prioritizing imageBytes over URL
  * @param imageBytes - Array of numbers OR base64 string representing the packed byte array
  * @param imageUrl - Fallback URL string (deprecated)
- * @returns Image source string
+ * @returns Object with image source string and whether it's a fallback logo
  */
-export const getFarmImageSrc = (imageBytes: number[] | string, imageUrl?: string): string => {
+export const getFarmImageSrc = (imageBytes: number[] | string, imageUrl?: string): { src: string; isLogo: boolean } => {
   console.log('getFarmImageSrc called with:', {
     hasImageBytes: !!imageBytes,
     imageBytesLength: typeof imageBytes === 'string' ? imageBytes.length : imageBytes?.length || 0,
@@ -83,16 +83,16 @@ export const getFarmImageSrc = (imageBytes: number[] | string, imageUrl?: string
   // Prioritize imageBytes if available
   if (imageBytes && ((Array.isArray(imageBytes) && imageBytes.length > 0) || (typeof imageBytes === 'string' && imageBytes.length > 0))) {
     console.log('Using imageBytes for image source');
-    return convertImageBytesToDataUrl(imageBytes);
+    return { src: convertImageBytesToDataUrl(imageBytes), isLogo: false };
   }
   
   // Fallback to URL if no imageBytes (for backward compatibility)
   if (imageUrl && imageUrl !== '') {
     console.log('Using image URL for image source:', imageUrl);
-    return imageUrl;
+    return { src: imageUrl, isLogo: false };
   }
   
   // Final fallback to placeholder
-  console.log('Using placeholder image');
-  return '/assets/img/placeholder/farm-placeholder.jpg';
+  console.log('Using DecentrAgri logo as fallback');
+  return { src: '/assets/img/logo/decentra_logo2.png', isLogo: true };
 };
