@@ -124,8 +124,12 @@ const FarmList: React.FC = () => {
                         opacity: 0.3,
                         filter: 'grayscale(100%) brightness(0.5)',
                         objectFit: 'contain',
-                        padding: '20px'
-                      } : {}}
+                        padding: '20px',
+                        cursor: 'pointer'
+                      } : {
+                        cursor: 'pointer'
+                      }}
+                      onClick={() => handleViewFarm(farm)}
                     />
                     <div className="farm-card-content">
                     <h3>{farm.farmName}</h3>

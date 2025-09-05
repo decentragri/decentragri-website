@@ -1,7 +1,16 @@
 // Type verification for Go struct compatibility
-// This file ensures our TypeScript interfaces match the Go farmservices.FarmList struct
+// This file ensures our TypeScript interfaces match the Go farmservices structs
 
-import { FarmList, FarmCoordinates } from '../types/farm.types';
+import { 
+  FarmList, 
+  FarmCoordinates, 
+  PlantScanResult, 
+  SensorReadingsWithInterpretation,
+  FarmScanResult,
+  PaginationInfo,
+  ParsedInterpretation,
+  Interpretation 
+} from '../types/farm.types';
 
 /*
 Go struct reference:
@@ -24,6 +33,22 @@ type FarmList struct {
 type FarmCoordinates struct {
     Lat float64 `json:"lat"`
     Lng float64 `json:"lng"`
+}
+
+type PlantScanResult struct {
+    CropType           string      `json:"cropType"`
+    Note               string      `json:"note"`
+    CreatedAt          time.Time   `json:"createdAt"`
+    FormattedCreatedAt string      `json:"formattedCreatedAt"`
+    ID                 string      `json:"id"`
+    Interpretation     interface{} `json:"interpretation"`
+    ImageURI           string      `json:"imageUri"`
+    ImageBytes         []byte      `json:"imageBytes"`
+}
+
+type SensorReadingsWithInterpretation struct {
+    SensorReadings
+    Interpretation Interpretation `json:"interpretation"`
 }
 */
 
@@ -52,12 +77,68 @@ const testCoordinates: FarmCoordinates = {
   lng: -74.0060  // number matches float64
 };
 
+const testPlantScan: PlantScanResult = {
+  cropType: "strawberry",
+  note: "Plant looks healthy",
+  createdAt: "2025-07-16T12:45:15.344Z",
+  formattedCreatedAt: "July 16, 2025 - 12:45pm",
+  id: "_Bn6MMNyTm8wC51MKQHx4",
+  interpretation: {
+    Diagnosis: "Healthy plant",
+    Reason: "Good color and structure",
+    Recommendations: ["Continue current care", "Monitor for pests"],
+    HistoricalComparison: "Better than last month's reading"
+  },
+  imageUri: "ipfs://QmReGfsvu7yGswUVmABhek3wF4he6knLJg3ztn1DknrjBF/papaya",
+  imageBytes: [137, 80, 78, 71] // PNG header bytes
+};
+
+const testSensorReading: SensorReadingsWithInterpretation = {
+  fertility: 1600,
+  moisture: 50,
+  ph: 5,
+  temperature: 25,
+  sunlight: 1800,
+  humidity: 50,
+  farmName: "Test Farm",
+  cropType: "strawberry",
+  sensorId: "sensor_001",
+  id: "07b8d8d2-ffc2-49a6-8ee3-947473ae77e3",
+  createdAt: "2025-07-16T12:45:15.344Z",
+  submittedAt: "2025-07-16T12:45:15.344Z",
+  formattedCreatedAt: "July 16, 2025 - 12:45pm",
+  formattedSubmittedAt: "July 16, 2025 - 12:45pm",
+  interpretation: {
+    evaluation: "Good",
+    fertility: "The soil has a balanced nutrient profile, suitable for crop growth.",
+    moisture: "Moisture levels are adequate, ensuring optimal plant hydration.",
+    ph: "The pH level is slightly acidic, which is favorable for most crops.",
+    temperature: "Soil temperature is within the optimal range for seed germination.",
+    sunlight: "The area receives sufficient sunlight, supporting photosynthesis.",
+    humidity: "Humidity levels are moderate, contributing to healthy plant development."
+  }
+};
+
+const testFarmScanResult: FarmScanResult = {
+  plantScans: [testPlantScan],
+  soilReadings: [testSensorReading]
+  // pagination is optional
+};
+
 // Export for testing
-export { testFarm, testCoordinates };
+export { 
+  testFarm, 
+  testCoordinates, 
+  testPlantScan, 
+  testSensorReading, 
+  testFarmScanResult 
+};
 
 // Type compatibility checks
 type GoFarmListKeys = keyof FarmList;
 type GoCoordinatesKeys = keyof FarmCoordinates;
+type GoPlantScanKeys = keyof PlantScanResult;
+type GoSensorReadingKeys = keyof SensorReadingsWithInterpretation;
 
 // This will cause TypeScript errors if our interface doesn't match the expected structure
 const requiredFarmFields: Record<GoFarmListKeys, string> = {

@@ -37,27 +37,37 @@
 
 .plant-scan-modal input:focus,
 .plant-scan-modal textarea:focus {
-  border-color: var(--primary-color, #4f46e5);
-  box-shadow: 0 0 0 2px var(--primary-light, #a5b4fc);
+  border-color: var(--primary-color, #6DBE45);
+  box-shadow: 0 0 0 2px var(--primary-light, #A8FF04);
 }
 
 /* Dark mode specific overrides */
 :root[data-theme="dark"] .plant-scan-modal {
   --card-bg: #1e293b;
   --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
   --border-color: #334155;
   --input-bg: #1e293b;
-  --primary-color: #818cf8;
-  --primary-light: #4f46e5;
+  --primary-color: #6DBE45;
+  --primary-light: #A8FF04;
+  --primary-dark: #5aa83a;
+  --button-secondary-bg: #334155;
+  --button-secondary-hover: #475569;
+  --hover-bg: rgba(255, 255, 255, 0.1);
 }
 
 :root[data-theme="light"] .plant-scan-modal {
   --card-bg: #ffffff;
   --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
   --border-color: #e2e8f0;
   --input-bg: #f8fafc;
-  --primary-color: #4f46e5;
-  --primary-light: #a5b4fc;
+  --primary-color: #6DBE45;
+  --primary-light: #A8FF04;
+  --primary-dark: #5aa83a;
+  --button-secondary-bg: #f1f5f9;
+  --button-secondary-hover: #e2e8f0;
+  --hover-bg: rgba(0, 0, 0, 0.05);
 }
 
 .modal-header {
@@ -126,7 +136,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 0 2px rgba(109, 190, 69, 0.2);
 }
 
 .image-upload-container {

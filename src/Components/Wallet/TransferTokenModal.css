@@ -283,7 +283,7 @@
 }
 
 .primary-button {
-  background-color: var(--primary-color, #4f46e5);
+  background-color: var(--primary-color, #6DBE45);
   color: white;
   border: none;
 }
@@ -322,9 +322,9 @@
   --text-tertiary: #64748b;
   --border-color: #334155;
   --input-bg: #1e293b;
-  --primary-color: #818cf8;
-  --primary-light: #4f46e5;
-  --primary-dark: #6366f1;
+  --primary-color: #6DBE45;
+  --primary-light: #A8FF04;
+  --primary-dark: #5aa83a;
   --button-secondary-bg: #334155;
   --button-secondary-hover: #475569;
   --bg-secondary: #0f172a;
@@ -341,9 +341,9 @@
   --text-tertiary: #94a3b8;
   --border-color: #e2e8f0;
   --input-bg: #f8fafc;
-  --primary-color: #4f46e5;
-  --primary-light: #a5b4fc;
-  --primary-dark: #4338ca;
+  --primary-color: #6DBE45;
+  --primary-light: #A8FF04;
+  --primary-dark: #5aa83a;
   --button-secondary-bg: #f1f5f9;
   --button-secondary-hover: #e2e8f0;
   --bg-secondary: #f8fafc;

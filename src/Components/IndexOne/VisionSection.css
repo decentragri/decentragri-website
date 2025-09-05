@@ -3,7 +3,7 @@
 /* Vision Section - Single paragraph karaoke animation */
 
 .vision-section {
-  padding: 40px 0; /* Much smaller padding */
+  padding: 200px 0; /* Much bigger top and bottom margins */
   background: var(--bg-color, #ffffff);
   position: relative;
   overflow: hidden;
@@ -27,7 +27,7 @@
 .vision-heading {
   font-size: 1.5rem; /* 24px */
   font-weight: 600;
-  color: var(--accent-color, #6DBE45);
+  color: #A8FF04;
   margin-bottom: 20px;
   text-align: left;
   letter-spacing: 0.5px;
@@ -35,7 +35,7 @@
 }
 
 [data-theme="dark"] .vision-heading {
-  color: #4ade80;
+  color: #A8FF04;
 }
 
 .vision-text-block {
@@ -75,8 +75,8 @@
 .karaoke-text {
   background: linear-gradient(
     90deg,
-    var(--accent-color, #6DBE45) 0%,
-    var(--accent-color, #6DBE45) calc(var(--progress, 0) * 100%),
+    #ffffff 0%,
+    #ffffff calc(var(--progress, 0) * 100%),
     #666666 calc(var(--progress, 0) * 100%),
     #666666 100%
   );
@@ -90,8 +90,8 @@
 [data-theme="dark"] .karaoke-text {
   background: linear-gradient(
     90deg,
-    #4ade80 0%,
-    #4ade80 calc(var(--progress, 0) * 100%),
+    #ffffff 0%,
+    #ffffff calc(var(--progress, 0) * 100%),
     #888888 calc(var(--progress, 0) * 100%),
     #888888 100%
   );
@@ -125,7 +125,15 @@
 
 @media (max-width: 768px) {
   .vision-section {
-    padding: 30px 0;
+    padding: 120px 0; /* Reduced but still generous spacing on tablets */
+  }
+  
+  .vision-section::before {
+    top: 60px;
+  }
+  
+  .vision-section::after {
+    bottom: 60px;
   }
   
   .vision-content {
@@ -147,7 +155,15 @@
 
 @media (max-width: 576px) {
   .vision-section {
-    padding: 25px 0;
+    padding: 100px 0; /* Still substantial spacing on mobile */
+  }
+  
+  .vision-section::before {
+    top: 40px;
+  }
+  
+  .vision-section::after {
+    bottom: 40px;
   }
   
   .vision-content {
@@ -184,14 +200,14 @@
 .vision-section::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 100px;
   left: 0;
   right: 0;
   height: 2px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--accent-color, #6DBE45) 50%,
+    #A8FF04 50%,
     transparent 100%
   );
   opacity: 0.4;
@@ -200,14 +216,14 @@
 .vision-section::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 100px;
   left: 0;
   right: 0;
   height: 2px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--accent-color, #6DBE45) 50%,
+    #A8FF04 50%,
     transparent 100%
   );
   opacity: 0.4;
@@ -251,8 +267,8 @@
   .karaoke-text {
     background: linear-gradient(
       90deg,
-      var(--accent-color, #6DBE45) 0%,
-      var(--accent-color, #6DBE45) calc(var(--progress, 0) * 100%),
+      #ffffff 0%,
+      #ffffff calc(var(--progress, 0) * 100%),
       #666666 calc(var(--progress, 0) * 100%),
       #666666 100%
     );
@@ -265,8 +281,8 @@
   [data-theme="dark"] .karaoke-text {
     background: linear-gradient(
       90deg,
-      #4ade80 0%,
-      #4ade80 calc(var(--progress, 0) * 100%),
+      #ffffff 0%,
+      #ffffff calc(var(--progress, 0) * 100%),
       #888888 calc(var(--progress, 0) * 100%),
       #888888 100%
     );

@@ -45,6 +45,15 @@ const FarmModal: React.FC<FarmModalProps> = ({ isOpen, onClose, farm }) => {
     // You can add your purchase logic here
   };
 
+  const handleMoreDetails = () => {
+    // Navigate to farm dashboard page with only farm name - FIXED VERSION
+    console.log('Navigating to farm dashboard for:', farm.farmName);
+    const url = `/farm-dashboard?farmName=${encodeURIComponent(farm.farmName)}`;
+    console.log('URL:', url);
+    window.location.href = url;
+    onClose();
+  };
+
   return (
     <div 
       className={`farm-modal-overlay ${isOpen ? 'active' : ''}`}
@@ -149,6 +158,10 @@ const FarmModal: React.FC<FarmModalProps> = ({ isOpen, onClose, farm }) => {
           <div className="farm-modal-actions">
             <button className="farm-modal-btn farm-modal-btn-secondary" onClick={onClose}>
               Close
+            </button>
+            <button className="farm-modal-btn farm-modal-btn-accent" onClick={handleMoreDetails}>
+              <i className="fas fa-chart-line" style={{ marginRight: '8px' }}></i>
+              More Details
             </button>
             <button className="farm-modal-btn farm-modal-btn-primary" onClick={handleViewOnMap}>
               <i className="fas fa-map-marker-alt" style={{ marginRight: '8px' }}></i>

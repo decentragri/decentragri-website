@@ -15,12 +15,10 @@ export interface FarmList {
   createdAt: string;
   formattedUpdatedAt: string;
   formattedCreatedAt: string;
-  imageBytes: number[];
+  imageBytes?: Uint8Array;
   location: string;
 }
 
-// ParsedInterpretation represents the parsed interpretation of a plant scan result
-// Note: Field names are lowercase to match actual API response
 export interface ParsedInterpretation {
   diagnosis: string;
   reason: string;
@@ -28,19 +26,17 @@ export interface ParsedInterpretation {
   historicalComparison?: string;
 }
 
-// PlantScanResult represents a plant scan with analysis
 export interface PlantScanResult {
   cropType: string;
-  note: string | null;
-  createdAt: string; // ISO 8601 format
-  formattedCreatedAt: string; // e.g. "July 15, 2025 - 12:00pm"
+  note: string;
+  createdAt: string;
+  formattedCreatedAt: string;
   id: string;
-  interpretation: ParsedInterpretation | string | null;
+  interpretation: string | ParsedInterpretation;
   imageUri: string;
-  imageBytes: number[]; // Array of numbers (packed byte array)
+  imageBytes?: number[]; // Changed from Uint8Array to number[] to match backend
 }
 
-// SensorReadings represents sensor data collected from agricultural sensors
 export interface SensorReadings {
   fertility: number;
   moisture: number;
@@ -58,7 +54,6 @@ export interface SensorReadings {
   formattedSubmittedAt: string;
 }
 
-// Interpretation contains human-readable interpretations of sensor readings
 export interface Interpretation {
   evaluation: string;
   fertility: string;
@@ -70,19 +65,24 @@ export interface Interpretation {
   historicalComparison?: string;
 }
 
-// SensorReadingsWithInterpretation extends SensorReadings to include AI-generated interpretations
-export interface SensorReadingsWithInterpretation extends SensorReadings {
+export interface SensorReadingsWithInterpretation {
+  fertility: number;
+  moisture: number;
+  ph: number;
+  temperature: number;
+  sunlight: number;
+  humidity: number;
+  farmName: string;
+  cropType: string;
+  sensorId: string;
+  id: string;
+  createdAt: string;
+  submittedAt: string;
+  formattedCreatedAt: string;
+  formattedSubmittedAt: string;
   interpretation: Interpretation;
 }
 
-// FarmScanResult represents the result of farm scans
-export interface FarmScanResult {
-  plantScans: PlantScanResult[];
-  soilReadings: SensorReadingsWithInterpretation[];
-  pagination?: PaginationInfo; // Made optional since it may not always be present
-}
-
-// PaginationInfo contains pagination metadata
 export interface PaginationInfo {
   page: number;
   limit: number;
@@ -90,4 +90,10 @@ export interface PaginationInfo {
   totalPages: number;
   hasNext: boolean;
   hasPrevious: boolean;
+}
+
+export interface FarmScanResult {
+  plantScans: PlantScanResult[];
+  soilReadings: SensorReadingsWithInterpretation[];
+  pagination: PaginationInfo;
 }

@@ -42,7 +42,7 @@
 :root {
     --font-family-body: 'Poppins', sans-serif;
     --font-family-heading: 'Poppins', sans-serif;
-    --primary-color: #fff;
+    --primary-color: #6DBE45;
     --secondary-color: #eeeeee;
     --body-text-color: #2e2e2e;
     --heading-text-color: #18152B;
@@ -4475,7 +4475,7 @@ label {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 24px;
-  background: var(--nft-gradient-color, linear-gradient(90deg, #00c3ff 0%, #00ffb4 100%));
+  background: var(--nft-gradient-color, linear-gradient(90deg, #A8FF04 0%, #6DBE45 100%));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -4513,7 +4513,7 @@ label {
   object-fit: contain;
   border-radius: 32px;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.13);
-  border: 2px solid #00c3ff;
+  border: 2px solid #A8FF04;
   background: #fff;
 }
 
@@ -4545,11 +4545,11 @@ label {
   font-size: 15.4px;
   font-weight: 700;
   color: #fff;
-  background: var(--nft-gradient-color, linear-gradient(90deg, #00c3ff 0%, #00ffb4 100%));
+  background: var(--nft-gradient-color, linear-gradient(90deg, #A8FF04 0%, #6DBE45 100%));
   border: none;
   border-radius: 25px;
   text-transform: uppercase;
-  box-shadow: 0 2px 12px 0 rgba(0,195,255,0.13);
+  box-shadow: 0 2px 12px 0 rgba(168,255,4,0.13);
   text-decoration: none;
   letter-spacing: 0;
   line-height: 1;

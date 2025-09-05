@@ -150,3 +150,23 @@ export const getFarmList = async (useMockData = false): Promise<FarmData[]> => {
     });
   }
 };
+
+// Get a single farm by name
+export const getFarmByName = async (farmName: string): Promise<FarmData | null> => {
+  try {
+    // First try to get from the farm list
+    const farms = await getFarmList();
+    const farm = farms.find(f => f.farmName === farmName);
+    
+    if (farm) {
+      return farm;
+    }
+    
+    // If not found in list, return null or create a basic farm object
+    console.warn(`Farm with name "${farmName}" not found in farm list`);
+    return null;
+  } catch (error) {
+    console.error('Error fetching farm by name:', error);
+    return null;
+  }
+};

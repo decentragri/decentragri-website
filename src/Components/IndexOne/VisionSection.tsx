@@ -15,11 +15,11 @@ const VisionSection = () => {
       // Calculate progress based on scroll position through the section
       let progress = 0
       
-      // Start animation when section is 70% visible
-      if (rect.top <= windowHeight * 0.7 && rect.bottom >= windowHeight * 0.1) {
-        // Calculate total scroll distance - balanced for good timing
-        const startPoint = windowHeight * 0.7 - rect.top
-        const totalDistance = rect.height * 0.8 + windowHeight * 0.6 // Moderate distance
+      // Start animation when section is 75% visible (balanced start)
+      if (rect.top <= windowHeight * 0.75 && rect.bottom >= windowHeight * 0.1) {
+        // Calculate total scroll distance - medium pace for balanced timing
+        const startPoint = windowHeight * 0.75 - rect.top
+        const totalDistance = rect.height * 0.6 + windowHeight * 0.45 // Medium distance for balanced speed
         
         progress = Math.max(0, Math.min(1, startPoint / totalDistance))
       }

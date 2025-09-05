@@ -3,6 +3,7 @@ export const API_CONFIG = {
   BASE_URL: 'http://localhost:9085',
   ENDPOINTS: {
     FARM_LIST: '/api/farm/list',
+    FARM_SCANS: '/api/farm/scans',
   },
   TIMEOUT: 10000, // 10 seconds
 };

@@ -82,7 +82,7 @@
 }
 
 .stat-icon.area {
-  background: linear-gradient(135deg, #00c3ff, #00ffb4);
+  background: linear-gradient(135deg, #A8FF04, #6DBE45);
 }
 
 .stat-icon.crops {
@@ -335,7 +335,7 @@
 }
 
 .activity-icon.soil {
-  background: linear-gradient(135deg, #00c3ff, #00ffb4);
+  background: linear-gradient(135deg, #A8FF04, #6DBE45);
 }
 
 .activity-icon.finance {
@@ -343,7 +343,7 @@
 }
 
 .activity-icon.weather {
-  background: linear-gradient(135deg, #56b6c2, #4a9ea9);
+  background: linear-gradient(135deg, #A8FF04, #6DBE45);
 }
 
 .activity-info {

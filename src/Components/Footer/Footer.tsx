@@ -49,7 +49,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='footer-divider'></div>
       <div className="copyright-wrap">
         <div className="container">
           <div className="row align-items-center">
@@ -64,6 +63,13 @@ const Footer = () => {
                 <li><a href="/terms-of-service">Terms of Service</a></li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="moving-text-banner">
+        <div className="moving-text-container">
+          <div className="moving-text">
+            <span>Agriculture Web3-Powered • Agriculture Web3-Powered • Agriculture Web3-Powered • Agriculture Web3-Powered • Agriculture Web3-Powered • Agriculture Web3-Powered • Agriculture Web3-Powered • Agriculture Web3-Powered • </span>
           </div>
         </div>
       </div>

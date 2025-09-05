@@ -303,6 +303,26 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+.farm-modal-btn-accent {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border: none;
+}
+
+.farm-modal-btn-accent:hover {
+  background: linear-gradient(135deg, #ff5252, #ff7575);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.dark-mode .farm-modal-btn-accent {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.dark-mode .farm-modal-btn-accent:hover {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .farm-modal {
