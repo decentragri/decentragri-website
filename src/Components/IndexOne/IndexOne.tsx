@@ -1,4 +1,5 @@
 import Banner from './Banner'
+import VisionSection from './VisionSection'
 import NarrativeSection from './NarrativeSection'
 import TokenizationSection from './TokenizationSection'
 import FieldCarousel from './FieldCarousel'
@@ -14,9 +15,11 @@ const IndexOne = () => {
   return (
     <main>
         <Banner/>
+
         
         <NarrativeSection />
         <TokenizationSection />
+        <VisionSection />
         <DecentragriFeatures />
         <FieldCarousel />
         <RoadmapSection />

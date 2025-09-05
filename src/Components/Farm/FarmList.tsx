@@ -86,8 +86,10 @@ const FarmList: React.FC = () => {
           <div className="farm-list-header">
             <h1>Farm Directory</h1>
             <p>
-              Discover verified agricultural plots with detailed information and monitoring data. 
-              Each farm is registered and tracked for sustainable farming practices.
+              Explore our exclusive network of partner farms offering exceptional investment opportunities 
+              in sustainable agriculture. Each farm represents a carefully vetted, high-yield agricultural 
+              venture with transparent monitoring, proven track records, and strong potential returns. 
+              Invest in the future of farming with our trusted partners.
             </p>
           </div>
 
