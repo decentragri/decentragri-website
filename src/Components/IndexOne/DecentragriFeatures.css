@@ -56,6 +56,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: floatUp 6s ease-in-out infinite;
 }
 
 .decentragri-feature::before {
@@ -167,6 +168,28 @@
 .decentragri-feature-icon svg circle,
 .decentragri-feature-icon svg rect {
   stroke: var(--lime-color);
+}
+
+/* Floating animations */
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.decentragri-feature:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.decentragri-feature:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.decentragri-feature:nth-child(3) {
+  animation-delay: 4s;
 }
 
 @media (max-width: 900px) {

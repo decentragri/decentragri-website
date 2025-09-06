@@ -2,7 +2,6 @@
 footer {
   border: none !important;
   border-top: none !important;
-  border-bottom: none !important;
 }
 
 footer * {
@@ -10,7 +9,7 @@ footer * {
 }
 
 .footer-top-wrap {
-  background-color: var(--footer-background-color, #f7f8fa);
+  background: #f8f9fa;
   padding: 90px 0 60px;
   border: none !important;
   border-top: none !important;
@@ -73,7 +72,7 @@ footer * {
 
 .copyright-wrap {
   padding: 35px 0;
-  background-color: var(--footer-background-color, #f7f8fa);
+  background: #e9ecef;
 }
 
 .copyright-text p {
@@ -203,7 +202,7 @@ footer * {
 
 /* Moving Text Banner */
 .moving-text-banner {
-  background: var(--footer-background-color, #f7f8fa);
+  background: #f8f9fa;
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -235,12 +234,18 @@ footer * {
 
 .moving-text-container::before {
   left: 0;
-  background: linear-gradient(to right, var(--footer-background-color, #f7f8fa) 0%, transparent 100%);
+  background: linear-gradient(to right, 
+    #f8f9fa 0%, 
+    rgba(248, 249, 250, 0.8) 50%, 
+    transparent 100%);
 }
 
 .moving-text-container::after {
   right: 0;
-  background: linear-gradient(to left, var(--footer-background-color, #f7f8fa) 0%, transparent 100%);
+  background: linear-gradient(to left, 
+    #f8f9fa 0%, 
+    rgba(248, 249, 250, 0.8) 50%, 
+    transparent 100%);
 }
 
 .moving-text {
@@ -311,7 +316,7 @@ footer * {
 
 /* Dark mode adjustments */
 .dark-mode .moving-text-banner {
-  background: var(--footer-background-color);
+  background: #1a1a1a;
 }
 
 .dark-mode .moving-text {
@@ -320,9 +325,15 @@ footer * {
 }
 
 .dark-mode .moving-text-container::before {
-  background: linear-gradient(to right, var(--footer-background-color) 0%, transparent 100%);
+  background: linear-gradient(to right, 
+    #1a1a1a 0%, 
+    rgba(26, 26, 26, 0.8) 50%, 
+    transparent 100%);
 }
 
 .dark-mode .moving-text-container::after {
-  background: linear-gradient(to left, var(--footer-background-color) 0%, transparent 100%);
+  background: linear-gradient(to left, 
+    #1a1a1a 0%, 
+    rgba(26, 26, 26, 0.8) 50%, 
+    transparent 100%);
 }

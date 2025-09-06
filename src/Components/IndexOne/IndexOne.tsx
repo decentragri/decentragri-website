@@ -27,12 +27,7 @@ const IndexOne = () => {
 
 
         {/* <FAQ /> */}
-        <CallToAction 
-          title="Ready to Get Started?"
-          subtitle="Join our community of farmers and start transforming your agricultural practices today"
-          primaryButtonText="Sign Up Now"
-          primaryButtonLink="/contact"
-        />
+        
         {/* <TopCollection/>
         <AreaBg/>
         <ExploreProduct/>

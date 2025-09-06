@@ -143,6 +143,12 @@
   color: #fff;
   font-size: 1.5rem;
   box-shadow: 0 8px 24px rgba(168, 255, 4, 0.3);
+  animation: iconPulse 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.tokenization-card-icon:hover {
+  animation: iconSpin 1s ease-in-out;
 }
 
 /* Light mode - ensure icons are visible with dark color on light gradient */
@@ -380,4 +386,38 @@
     padding: 10px 20px;
     font-size: 0.8rem;
   }
+}
+
+/* Icon animations */
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(168, 255, 4, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(168, 255, 4, 0.4);
+  }
+}
+
+@keyframes iconSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Staggered animation delays for tokenization cards */
+.tokenization-card:nth-child(1) .tokenization-card-icon {
+  animation-delay: 0s;
+}
+
+.tokenization-card:nth-child(2) .tokenization-card-icon {
+  animation-delay: 1.3s;
+}
+
+.tokenization-card:nth-child(3) .tokenization-card-icon {
+  animation-delay: 2.6s;
 }
