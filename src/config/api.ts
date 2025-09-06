@@ -1,6 +1,6 @@
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: 'http://localhost:9085',
+  BASE_URL: 'https://consumer.decentragri.com',
   ENDPOINTS: {
     FARM_LIST: '/api/farm/list',
     FARM_SCANS: '/api/farm/scans',
