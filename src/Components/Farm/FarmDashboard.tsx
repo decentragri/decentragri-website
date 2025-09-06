@@ -593,7 +593,7 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
                       </div>
                       <div className="metric-data">
                         <span className="metric-label">Soil Fertility</span>
-                        <span className="metric-value">{reading.fertility.toFixed(1)}%</span>
+                        <span className="metric-value">{reading.fertility.toFixed(1)} µS/cm</span>
                         <span className="metric-status">{reading.interpretation.fertility}</span>
                       </div>
                     </div>
@@ -637,7 +637,7 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
                       </div>
                       <div className="metric-data">
                         <span className="metric-label">Sunlight</span>
-                        <span className="metric-value">{reading.sunlight.toFixed(1)}%</span>
+                        <span className="metric-value">{reading.sunlight.toFixed(1)} lux</span>
                         <span className="metric-status">{reading.interpretation.sunlight}</span>
                       </div>
                     </div>
