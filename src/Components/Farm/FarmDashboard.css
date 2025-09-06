@@ -830,13 +830,13 @@
 
 .status-badge.healthy,
 .status-badge.excellent {
-  background: #dcfce7;
-  color: #166534;
+  background: #A8FF04;
+  color: #000000;
 }
 
 .status-badge.good {
-  background: #fef3c7;
-  color: #92400e;
+  background: #6DBE45;
+  color: #ffffff;
 }
 
 .status-badge.normal {
@@ -844,20 +844,48 @@
   color: #1e40af;
 }
 
+/* Additional status badge colors for negative states */
+.status-badge.bad,
+.status-badge.poor,
+.status-badge.critical {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status-badge.warning,
+.status-badge.moderate {
+  background: #fef3c7;
+  color: #d97706;
+}
+
 .dark-mode .status-badge.healthy,
 .dark-mode .status-badge.excellent {
-  background: #1a4d2e;
-  color: #4ade80;
+  background: #6DBE45;
+  color: #000000;
 }
 
 .dark-mode .status-badge.good {
-  background: #451a03;
-  color: #fbbf24;
+  background: #A8FF04;
+  color: #000000;
 }
 
 .dark-mode .status-badge.normal {
   background: #1e3a8a;
   color: #60a5fa;
+}
+
+/* Dark mode for additional status badge colors */
+.dark-mode .status-badge.bad,
+.dark-mode .status-badge.poor,
+.dark-mode .status-badge.critical {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+.dark-mode .status-badge.warning,
+.dark-mode .status-badge.moderate {
+  background: #92400e;
+  color: #fbbf24;
 }
 
 .scan-content,
