@@ -136,6 +136,17 @@
   box-shadow: var(--shadow-sm);
 }
 
+.tab.loading {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.tab.loading:hover {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
 .tab i {
   font-size: 16px;
 }
@@ -376,6 +387,21 @@
   transform: translateY(-2px) scale(1.01);
 }
 
+.stat-card.loading {
+  cursor: not-allowed;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.stat-card.loading:hover {
+  transform: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card.loading .stat-icon {
+  opacity: 0.8;
+}
+
 .stat-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
@@ -385,34 +411,48 @@
   width: 64px;
   height: 64px;
   border-radius: 12px;
-  background: #6b7280;
+  background: #A8FF04 !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #000000 !important;
   font-size: 24px;
 }
 
 .stat-card.secondary .stat-icon {
-  background: #6b7280;
+  background: #A8FF04 !important;
+  color: #000000 !important;
 }
 
 .stat-card.primary .stat-icon {
-  background: #6b7280;
+  background: #A8FF04 !important;
+  color: #000000 !important;
 }
 
 .stat-card.accent .stat-icon {
-  background: #6b7280;
+  background: #A8FF04 !important;
+  color: #000000 !important;
 }
 
 .stat-card.success .stat-icon {
-  background: #6b7280;
+  background: #A8FF04 !important;
+  color: #000000 !important;
+}
+
+/* Dark mode variations for stat icons */
+.dark-mode .stat-icon,
+.dark-mode .stat-card.secondary .stat-icon,
+.dark-mode .stat-card.primary .stat-icon,
+.dark-mode .stat-card.accent .stat-icon,
+.dark-mode .stat-card.success .stat-icon {
+  background: #6DBE45 !important;
+  color: #000000 !important;
 }
 
 .stat-content h3 {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: #ffffff !important;
   margin: 0 0 8px 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -421,7 +461,7 @@
 .stat-number {
   font-size: 28px;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #ffffff !important;
   display: block;
   line-height: 1;
 }
@@ -429,7 +469,7 @@
 .stat-text {
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #ffffff !important;
   display: block;
 }
 
@@ -1041,12 +1081,12 @@
   font-size: 16px;
 }
 
-.metric-icon.fertility { background: #6b7280; }
-.metric-icon.moisture { background: #6b7280; }
-.metric-icon.ph { background: #6b7280; }
-.metric-icon.temperature { background: #6b7280; }
-.metric-icon.sunlight { background: #6b7280; }
-.metric-icon.humidity { background: #6b7280; }
+.metric-icon.fertility { background: #A8FF04; color: #000000; }
+.metric-icon.moisture { background: #A8FF04; color: #000000; }
+.metric-icon.ph { background: #A8FF04; color: #000000; }
+.metric-icon.temperature { background: #A8FF04; color: #000000; }
+.metric-icon.sunlight { background: #A8FF04; color: #000000; }
+.metric-icon.humidity { background: #A8FF04; color: #000000; }
 
 .metric-data {
   flex: 1;
@@ -1253,9 +1293,8 @@
 .scan-diagnosis {
   margin-top: 8px;
   padding: 8px 12px;
-  background: rgba(168, 255, 4, 0.1);
+  background: transparent;
   border-radius: 6px;
-  border-left: 3px solid #A8FF04;
 }
 
 .diagnosis-label {
@@ -1340,6 +1379,59 @@
 
 .dark-mode .scan-content {
   background: var(--surface-color);
+}
+
+/* Class-based dark mode text fixes for metric elements */
+.dark-mode .metric-label {
+  color: #ffffff !important;
+}
+
+.dark-mode .metric-value {
+  color: #ffffff !important;
+}
+
+.dark-mode .metric-status {
+  color: #A8FF04 !important;
+}
+
+.dark-mode .reading-title {
+  color: #ffffff !important;
+}
+
+.dark-mode .reading-date {
+  color: #cccccc !important;
+}
+
+.dark-mode .assessment-label {
+  color: #ffffff !important;
+}
+
+.dark-mode .assessment-value {
+  color: #A8FF04 !important;
+}
+
+.dark-mode .metrics-section h4,
+.dark-mode .assessment-section h4 {
+  color: #ffffff !important;
+}
+
+.dark-mode .sensor-id {
+  color: #cccccc !important;
+}
+
+.dark-mode .submitted-info {
+  color: #cccccc !important;
+}
+
+/* Class-based dark mode metric icons */
+.dark-mode .metric-icon.fertility,
+.dark-mode .metric-icon.moisture,
+.dark-mode .metric-icon.ph,
+.dark-mode .metric-icon.temperature,
+.dark-mode .metric-icon.sunlight,
+.dark-mode .metric-icon.humidity {
+  background: #6DBE45 !important;
+  color: #000000 !important;
 }
 
 .scan-main {
@@ -1528,7 +1620,6 @@
   padding: 14px;
   background: var(--surface-color);
   border-radius: 12px;
-  border-left: 4px solid #A8FF04;
   transition: all 0.3s ease;
   box-shadow: var(--shadow-sm);
   min-height: 60px;
@@ -1538,7 +1629,6 @@
 
 .dark-mode .info-item {
   background: var(--surface-color);
-  border-left-color: #6DBE45;
 }
 
 .info-item:hover {
@@ -2028,6 +2118,59 @@
   border-bottom-color: #444;
 }
 
+/* Dark mode text fixes for metric elements */
+[data-theme="dark"] .metric-label {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .metric-value {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .metric-status {
+  color: #A8FF04 !important;
+}
+
+[data-theme="dark"] .reading-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .reading-date {
+  color: #cccccc !important;
+}
+
+[data-theme="dark"] .assessment-label {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .assessment-value {
+  color: #A8FF04 !important;
+}
+
+[data-theme="dark"] .metrics-section h4,
+[data-theme="dark"] .assessment-section h4 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .sensor-id {
+  color: #cccccc !important;
+}
+
+[data-theme="dark"] .submitted-info {
+  color: #cccccc !important;
+}
+
+/* Dark mode metric icons */
+[data-theme="dark"] .metric-icon.fertility,
+[data-theme="dark"] .metric-icon.moisture,
+[data-theme="dark"] .metric-icon.ph,
+[data-theme="dark"] .metric-icon.temperature,
+[data-theme="dark"] .metric-icon.sunlight,
+[data-theme="dark"] .metric-icon.humidity {
+  background: #6DBE45 !important;
+  color: #000000 !important;
+}
+
 [data-theme="dark"] .no-data {
   background: #2d2d2d;
   border-color: #444;
@@ -2122,13 +2265,6 @@
 /* Scan Actions */
 .scan-actions {
   padding: 20px 25px;
-  border-top: 1px solid rgba(168, 255, 4, 0.1);
-  background: rgba(248, 250, 252, 0.4);
-}
-
-.dark-mode .scan-actions {
-  background: rgba(55, 65, 81, 0.4);
-  border-top-color: rgba(168, 255, 4, 0.2);
 }
 
 .ai-analysis-button {
@@ -2304,10 +2440,6 @@
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  background: rgba(168, 255, 4, 0.1);
-  padding: 8px 12px;
-  border-radius: 6px;
-  border-left: 3px solid #A8FF04;
 }
 
 .analysis-text {

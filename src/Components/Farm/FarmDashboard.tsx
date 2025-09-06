@@ -20,6 +20,8 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
   const [farm, setFarm] = useState<FarmList | null>(propFarm || null);
   const [scanData, setScanData] = useState<FarmScanResult | null>(null);
   const [loading, setLoading] = useState(true);
+  const [scansLoading, setScansLoading] = useState(true);
+  const [sensorsLoading, setSensorsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'scans' | 'sensors'>('overview');
   const [selectedScan, setSelectedScan] = useState<PlantScanResult | null>(null);
@@ -62,6 +64,8 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        setScansLoading(true);
+        setSensorsLoading(true);
         setError(null);
         
         // If we don't have farm data but have farmName, fetch it
@@ -74,6 +78,8 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
             try {
               const data = await getFarmScans(fetchedFarm.farmName);
               setScanData(data);
+              setScansLoading(false);
+              setSensorsLoading(false);
               console.log('Successfully loaded farm scan data:', data);
             } catch (scanError) {
               console.error('Failed to load scan data:', scanError);
@@ -91,15 +97,21 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
                   hasPrevious: false
                 }
               });
+              setScansLoading(false);
+              setSensorsLoading(false);
             }
           } else {
             setError('Farm not found');
+            setScansLoading(false);
+            setSensorsLoading(false);
           }
         } else if (farm) {
           // We already have farm data, just fetch scan data
           try {
             const data = await getFarmScans(farm.farmName);
             setScanData(data);
+            setScansLoading(false);
+            setSensorsLoading(false);
             console.log('Successfully loaded farm scan data:', data);
           } catch (scanError) {
             console.error('Failed to load scan data:', scanError);
@@ -117,6 +129,8 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
                 hasPrevious: false
               }
             });
+            setScansLoading(false);
+            setSensorsLoading(false);
           }
         } else {
           // No farm data and no farm name, redirect
@@ -125,6 +139,8 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load data');
+        setScansLoading(false);
+        setSensorsLoading(false);
       } finally {
         setLoading(false);
       }
@@ -235,9 +251,17 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
       <div className="farm-stats-section">
         <h2 className="section-title">Farm Analytics Overview</h2>
         <div className="farm-stats-grid">
-          <div className="stat-card secondary clickable" onClick={() => setActiveTab('sensors')}>
+          <div 
+            className={`stat-card secondary ${sensorsLoading ? 'loading' : 'clickable'}`} 
+            onClick={() => !sensorsLoading && setActiveTab('sensors')}
+            style={{ cursor: sensorsLoading ? 'not-allowed' : 'pointer' }}
+          >
             <div className="stat-icon">
-              <i className="fas fa-thermometer-half"></i>
+              {sensorsLoading ? (
+                <i className="fas fa-spinner fa-spin"></i>
+              ) : (
+                <i className="fas fa-thermometer-half"></i>
+              )}
             </div>
             <div className="stat-content">
               <h3>Soil Readings</h3>
@@ -246,9 +270,17 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
             </div>
           </div>
           
-          <div className="stat-card primary clickable" onClick={() => setActiveTab('scans')}>
+          <div 
+            className={`stat-card primary ${scansLoading ? 'loading' : 'clickable'}`} 
+            onClick={() => !scansLoading && setActiveTab('scans')}
+            style={{ cursor: scansLoading ? 'not-allowed' : 'pointer' }}
+          >
             <div className="stat-icon">
-              <i className="fas fa-microscope"></i>
+              {scansLoading ? (
+                <i className="fas fa-spinner fa-spin"></i>
+              ) : (
+                <i className="fas fa-microscope"></i>
+              )}
             </div>
             <div className="stat-content">
               <h3>Plant Scans</h3>
@@ -394,10 +426,6 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
                 <div className="scan-main">
                   {/* Plant Image */}
                   <div className="scan-image-section">
-                    <h4 style={{ marginBottom: '15px', color: '#1e293b', fontSize: '1.1rem', fontWeight: '600' }}>
-                      <i className="fas fa-camera" style={{ color: '#10b981', marginRight: '8px' }}></i>
-                      Plant Image
-                    </h4>
                     {(scan.imageUri && scan.imageUri !== '') || (scan.imageBytes && scan.imageBytes.length > 0) ? (
                       <div className="scan-image-container">
                         <img 
@@ -679,17 +707,27 @@ const FarmDashboard = ({ farm: propFarm }: FarmDashboardProps) => {
             Overview
           </button>
           <button 
-            className={`tab ${activeTab === 'scans' ? 'active' : ''}`}
-            onClick={() => setActiveTab('scans')}
+            className={`tab ${activeTab === 'scans' ? 'active' : ''} ${scansLoading ? 'loading' : ''}`}
+            onClick={() => !scansLoading && setActiveTab('scans')}
+            disabled={scansLoading}
           >
-            <i className="fas fa-microscope"></i>
+            {scansLoading ? (
+              <i className="fas fa-spinner fa-spin"></i>
+            ) : (
+              <i className="fas fa-microscope"></i>
+            )}
             Plant Analysis
           </button>
           <button 
-            className={`tab ${activeTab === 'sensors' ? 'active' : ''}`}
-            onClick={() => setActiveTab('sensors')}
+            className={`tab ${activeTab === 'sensors' ? 'active' : ''} ${sensorsLoading ? 'loading' : ''}`}
+            onClick={() => !sensorsLoading && setActiveTab('sensors')}
+            disabled={sensorsLoading}
           >
-            <i className="fas fa-thermometer-half"></i>
+            {sensorsLoading ? (
+              <i className="fas fa-spinner fa-spin"></i>
+            ) : (
+              <i className="fas fa-thermometer-half"></i>
+            )}
             Sensor Data
           </button>
         </div>

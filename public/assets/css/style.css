@@ -498,7 +498,7 @@ label {
 }
 .navbar-wrap > ul > li.active > a,
 .navbar-wrap > ul > li:hover > a {
-	color: var(--purple-color);
+	color: var(--primary-color);
 }
 .main-menu .navigation li.menu-item-has-children .dropdown-btn {
     display: none;
