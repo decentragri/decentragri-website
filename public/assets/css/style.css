@@ -500,6 +500,20 @@ label {
 .navbar-wrap > ul > li:hover > a {
 	color: var(--primary-color) !important;
 }
+
+/* Additional specificity for pages that might override navbar styles */
+body .navbar-wrap > ul > li.active > a,
+body .navbar-wrap > ul > li:hover > a,
+.main-content .navbar-wrap > ul > li.active > a,
+.main-content .navbar-wrap > ul > li:hover > a,
+.about-page .navbar-wrap > ul > li.active > a,
+.about-page .navbar-wrap > ul > li:hover > a,
+.farm-page .navbar-wrap > ul > li.active > a,
+.farm-page .navbar-wrap > ul > li:hover > a,
+.farm-list-page .navbar-wrap > ul > li.active > a,
+.farm-list-page .navbar-wrap > ul > li:hover > a {
+	color: var(--primary-color) !important;
+}
 .main-menu .navigation li.menu-item-has-children .dropdown-btn {
     display: none;
 }
@@ -589,6 +603,37 @@ label {
 	-webkit-box-shadow: 0 10px 15px rgba(25, 25, 25, 0.1);
 	box-shadow: 0 10px 15px rgba(25, 25, 25, 0.1);
 	border-radius: 0;
+}
+
+/* Maintain green hover color for navbar links in sticky state */
+.sticky-menu .navbar-wrap > ul > li:hover > a {
+	color: var(--primary-color) !important;
+}
+
+/* Additional specificity for dark mode sticky header */
+body .sticky-menu .navbar-wrap > ul > li:hover > a,
+.dark-mode .sticky-menu .navbar-wrap > ul > li:hover > a,
+html[data-theme="dark"] .sticky-menu .navbar-wrap > ul > li:hover > a,
+.about-page .sticky-menu .navbar-wrap > ul > li:hover > a,
+.farm-page .sticky-menu .navbar-wrap > ul > li:hover > a,
+.farm-list-page .sticky-menu .navbar-wrap > ul > li:hover > a {
+	color: var(--primary-color) !important;
+}
+
+/* Ensure navigation hover colors work properly across all pages */
+.main-content .navbar-wrap > ul > li > a:hover,
+.about-page .navbar-wrap > ul > li > a:hover,
+.farm-list-page .navbar-wrap > ul > li > a:hover,
+.farm-page .navbar-wrap > ul > li > a:hover {
+	color: #6DBE45 !important;
+}
+
+/* Dark mode navigation hover colors */
+.dark-mode .main-content .navbar-wrap > ul > li > a:hover,
+.dark-mode .about-page .navbar-wrap > ul > li > a:hover,
+.dark-mode .farm-list-page .navbar-wrap > ul > li > a:hover,
+.dark-mode .farm-page .navbar-wrap > ul > li > a:hover {
+	color: #6DBE45 !important;
 }
 
 
