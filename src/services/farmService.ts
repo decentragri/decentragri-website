@@ -7,13 +7,7 @@ const API_BASE_URL = API_CONFIG.BASE_URL;
 // API Service to get farm list from backend
 export const fetchFarmListFromAPI = async (): Promise<FarmData[]> => {
   try {
-    const headers = getApiHeaders(true);
-    
-    // Check if we have an auth token
-    const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-    if (!token) {
-      throw new Error('Authentication token not found. Please log in.');
-    }
+    const headers = getApiHeaders(false); // No auth needed for public routes
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), API_CONFIG.TIMEOUT);
