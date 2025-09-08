@@ -89,6 +89,7 @@ const Header = () => {
                     <ul className="navigation">
                       <li><Link to="/">Home</Link></li>
                       <li><Link to="/farms">Farms</Link></li>
+                      <li><Link to="/tree-nfts">Trees</Link></li>
                       <li><a href="/assets/whitepaper/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
                       <li><Link to="/about">About</Link></li>
                       <li><Link to="/contact">Contact</Link></li>
@@ -152,6 +153,12 @@ const Header = () => {
                           <Link to="/farms" onClick={closeMobileMenu} className="nav-link">
                             <i className="fas fa-seedling" />
                             <span>Farms</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/tree-nfts" onClick={closeMobileMenu} className="nav-link">
+                            <i className="fas fa-tree" />
+                            <span>Trees</span>
                           </Link>
                         </li>
                         <li>
