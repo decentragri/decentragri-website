@@ -20,13 +20,13 @@ const teamMembers = [
     bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
     linkedin: "https://www.linkedin.com/in/paul-anthony-arriola-a0436321b/",
   },
-  // {
-  //   name: 'Francis Jerry',
-  //   role: 'Co-CEO, Nigeria',
-  //   image: '/assets/img/team/jerry.jpg',
-  //   linkedin: 'https://www.linkedin.com/in/francis-jerry',
-  //   bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
-  // },
+  {
+    name: 'Francis Jerry',
+    role: 'Co-CEO, Nigeria',
+    image: '/assets/img/team/jerry.jpg',
+    linkedin: 'https://www.linkedin.com/in/francis-jerry',
+    bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
+  },
   {
     name: 'Yehna Lee',
     role: 'Chief Strategy Officer',
