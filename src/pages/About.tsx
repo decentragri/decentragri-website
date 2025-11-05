@@ -49,7 +49,7 @@ const teamMembers = [
   //   image: '/assets/img/team/mela.jpg',
   //   bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
   //   twitter: 'https://x.com/meladecentragri?t=c-Cm5SVVWl0NhpcrJQ_ldA&s=09'
-  }
+  
 ];
 
 // Core values data
