@@ -20,13 +20,13 @@ const teamMembers = [
     bio: 'Technology expert specializing in agricultural data systems and IoT solutions.',
     linkedin: "https://www.linkedin.com/in/paul-anthony-arriola-a0436321b/",
   },
-  {
-    name: 'Francis Jerry',
-    role: 'Co-CEO, Nigeria',
-    image: '/assets/img/team/jerry.jpg',
-    linkedin: 'https://www.linkedin.com/in/francis-jerry',
-    bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
-  },
+  // {
+  //   name: 'Francis Jerry',
+  //   role: 'Co-CEO, Nigeria',
+  //   image: '/assets/img/team/jerry.jpg',
+  //   linkedin: 'https://www.linkedin.com/in/francis-jerry',
+  //   bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
+  // },
   {
     name: 'Yehna Lee',
     role: 'Chief Strategy Officer',
@@ -35,20 +35,20 @@ const teamMembers = [
     twitter: 'https://x.com/alviedahl',
     linkedin: 'https://www.linkedin.com/in/yehna-lee-0b539b26a/'
   },
-  {
-    name: 'Khyle De Jesus-Santos',
-    role: 'Chief Product Officer, Biotechnology Researcher',
-    image: '/assets/img/team/khyle_full.png',
-    bio: 'Expert in sustainable farming practices and crop optimization techniques.',
-    linkedin: 'https://www.linkedin.com/in/khyle-de-jesus-10444a197/'
-  },
+  // {
+  //   name: 'Khyle De Jesus-Santos',
+  //   role: 'Chief Product Officer, Biotechnology Researcher',
+  //   image: '/assets/img/team/khyle_full.png',
+  //   bio: 'Expert in sustainable farming practices and crop optimization techniques.',
+  //   linkedin: 'https://www.linkedin.com/in/khyle-de-jesus-10444a197/'
+  // },
 
-  {
-    name: 'Carmela Dela Cruz',
-    role: 'Procurement Officer, Regional Director - Bulacan',
-    image: '/assets/img/team/mela.jpg',
-    bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
-    twitter: 'https://x.com/meladecentragri?t=c-Cm5SVVWl0NhpcrJQ_ldA&s=09'
+  // {
+  //   name: 'Carmela Dela Cruz',
+  //   role: 'Procurement Officer, Regional Director - Bulacan',
+  //   image: '/assets/img/team/mela.jpg',
+  //   bio: 'Creates intuitive interfaces that make complex agricultural data accessible to everyone.',
+  //   twitter: 'https://x.com/meladecentragri?t=c-Cm5SVVWl0NhpcrJQ_ldA&s=09'
   }
 ];
 
