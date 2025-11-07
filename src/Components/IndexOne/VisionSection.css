@@ -60,19 +60,13 @@
   display: none;
 }
 
-/* Simple and reliable karaoke effect using spans */
+/* Karaoke effect and text styles */
 .karaoke-text {
   position: relative;
   display: inline;
-  
-  /* Perfect text rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-}
-
-/* Use a simple background gradient approach */
-.karaoke-text {
   background: linear-gradient(
     90deg,
     #222222 0%,
@@ -84,17 +78,15 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  transition: all 0.3s ease;
 }
 
+/* Simple white text for dark mode */
 [data-theme="dark"] .karaoke-text {
-  background: linear-gradient(
-    90deg,
-    #ffffff 0%,
-    #ffffff calc(var(--progress, 0) * 100%),
-    #888888 calc(var(--progress, 0) * 100%),
-    #888888 100%
-  );
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
+  color: #ffffff;
 }
 
 /* Fallback for older browsers */
@@ -260,34 +252,11 @@
 
 /* Fallback for browsers that don't support modern features */
 @supports not (width: calc(var(--progress) * 100%)) {
-  .karaoke-text::before {
-    display: none;
-  }
-  
   .karaoke-text {
-    background: linear-gradient(
-      90deg,
-      #ffffff 0%,
-      #ffffff calc(var(--progress, 0) * 100%),
-      #666666 calc(var(--progress, 0) * 100%),
-      #666666 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
+    color: #222222;
   }
   
   [data-theme="dark"] .karaoke-text {
-    background: linear-gradient(
-      90deg,
-      #ffffff 0%,
-      #ffffff calc(var(--progress, 0) * 100%),
-      #888888 calc(var(--progress, 0) * 100%),
-      #888888 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
   }
 }

@@ -4,6 +4,7 @@ import NarrativeSection from './NarrativeSection'
 import TokenizationSection from './TokenizationSection'
 import FieldCarousel from './FieldCarousel'
 import DecentragriFeatures from './DecentragriFeatures'
+import DecentragriTech from './DecentragriTech'
 import Partnerships from './Partnerships'
 import RoadmapSection from './RoadmapSection'
 import CallToAction from '../Common/CallToAction'
@@ -19,8 +20,9 @@ const IndexOne = () => {
         
         <NarrativeSection />
         <TokenizationSection />
-        <VisionSection />
+        {/* <VisionSection /> */}
         <DecentragriFeatures />
+        <DecentragriTech />
         <FieldCarousel />
         <RoadmapSection />
         <Partnerships />
